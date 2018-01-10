@@ -26,6 +26,16 @@ html {
 */
 }
 
+nav,
+header,
+main,
+.info-section,
+.news,
+.index {
+    display: block;
+    overflow: auto;
+}
+
 nav {
     position: fixed;
     width: 100%;
@@ -54,25 +64,77 @@ header h1 {
     text-align: center;
 }
 
+header h2 {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
 .info-section {
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
 .info-section div {
+    height: 200px;
+}
+
+.info-section .icon-container {
     border: 1px solid black;
 }
 
-main {
+.news {
     padding-top: 60px;
 }
 
-main .reading-list {
+.news .reading-list {
     border: 1px solid black;
+    padding: 15px;
 }
 
-main .news {
+.news .reading-list ol {
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.news .reading-list ol button {
+    float: right;
+    font-size: .5rem;
+}
+
+.news .reading-list ol button:hover {
+    text-decoration: underline;
+}
+
+.news .reading-list input,
+.news .reading-list form button {
     border: 1px solid black;
+    display: inline;
+}
+
+.news .reading-list input {
+    width: 100%;
+}
+
+.news .news-container {
+    border: 1px solid black;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.news .news-container .source {
+    margin-top: 20px;
+}
+
+.news .news-container ul {
+    list-style: none;
 }
 
 .index img {

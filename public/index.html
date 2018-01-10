@@ -27,93 +27,98 @@
         <h2>No newsource can be completely unbiased, and the difference in perspective has become more noticeable than ever. Front page headlines from one source may be nothing more than a footnote in another. Bias Balanced allows you to compare headlines from a wide array of news outlets in order to get a more complete picture of current events.</h2>
     </header>
 
-    <section class="info-section">
-        <div class="icon-container col-4">
-            <h3>Read</h3>
-            <p class="section-description">Click on an article to read it in a new window.</p>
-        </div>
-        <div class="icon-container col-4">
-            <h3>Email</h3>
-            <p class="section-description">Short on time? Add articles to a reading list and send the links to your inbox.</p>
-        </div>
-        <div class="icon-container col-4">
-            <h3>Compare</h3>
-            <p class="section-description">View where sources fall on the political spectrum and measure how balanced a perspective users are getting.</p>
-        </div>
-    </section>
-
     <main role="main">
-        <section class="reading-list col-3">
-            <h3>My Articles</h3>
-            <ol>
-                <li>Sample Article 1</li>
-                <li>Sample Article 2</li>
-                <li>Sample Article 3</li>
-                <li>Sample Article 4</li>
-            </ol>
-            <form action="#" name="email-reading-list" autocomplete="off">
-                <fieldset name="email"></fieldset>
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" />
-                <button type="submit">Send</button>
-            </form>
+        <section class="info-section">
+            <div class="icon-container col-3">
+                <h3>Read</h3>
+                <p class="section-description">Click on an article to read it in a new window.</p>
+            </div>
+            <div class="placeholder col-1"></div>
+            <div class="icon-container col-3">
+                <h3>Email</h3>
+                <p class="section-description">Short on time? Add articles to a reading list and send the links to your inbox.</p>
+            </div>
+            <div class="placeholder col-1"></div>
+
+            <div class="icon-container col-3">
+                <h3>Compare</h3>
+                <p class="section-description">View where sources fall on the political spectrum and measure how balanced a perspective users are getting.</p>
+            </div>
         </section>
-        <section class="news col-9">
-            <div class="source col-4">
-                <h5>News Source</h5>
-                <ul class="articles">
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                </ul>
-            </div>
-            <div class="source col-4">
-                <h5>News Source</h5>
-                <ul class="articles">
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                </ul>
-            </div>
-            <div class="source col-4">
-                <h5>News Source</h5>
-                <ul class="articles">
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                </ul>
-            </div>
-            <div class="source col-4">
-                <h5>News Source</h5>
-                <ul class="articles">
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                </ul>
-            </div>
-            <div class="source col-4">
-                <h5>News Source</h5>
-                <ul class="articles">
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                </ul>
-            </div>
-            <div class="source col-4">
-                <h5>News Source</h5>
-                <ul class="articles">
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                    <li class="article">Headline</li>
-                </ul>
-            </div>
+
+        <section class="news">
+            <section class="reading-list col-3">
+                <h3>My Articles</h3>
+                <ol>
+                    <li>Sample Article 1<button class="delete">x</button></li>
+                    <li>Sample Article 2<button class="delete">x</button></li>
+                    <li>Sample Article 3<button class="delete">x</button></li>
+                    <li>Sample Article 4<button class="delete">x</button></li>
+                </ol>
+                <form action="#" name="email-reading-list" autocomplete="off">
+                    <fieldset name="email"></fieldset>
+                    <label for="email">Email</label><br />
+                    <input type="text" name="email" id="email" />
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+            <section class="news-container col-9">
+                <div class="source col-4">
+                    <h5>News Source</h5>
+                    <ul class="articles">
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                    </ul>
+                </div>
+                <div class="source col-4">
+                    <h5>News Source</h5>
+                    <ul class="articles">
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                    </ul>
+                </div>
+                <div class="source col-4">
+                    <h5>News Source</h5>
+                    <ul class="articles">
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                    </ul>
+                </div>
+                <div class="source col-4">
+                    <h5>News Source</h5>
+                    <ul class="articles">
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                    </ul>
+                </div>
+                <div class="source col-4">
+                    <h5>News Source</h5>
+                    <ul class="articles">
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                    </ul>
+                </div>
+                <div class="source col-4">
+                    <h5>News Source</h5>
+                    <ul class="articles">
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                        <li class="article">Headline</li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+
+        <section class="index">
+            <img class="meter" src="images/meter-placeholder.jpg" />
+            <img class="spectrum" src="images/media-spectrum-placeholder.png" />
         </section>
     </main>
-
-    <section class="index">
-        <img src="images/meter-placeholder.jpg" />
-        <img src="images/media-spectrum-placeholder.png" />
-    </section>
 
     <footer role="contentinfo">
         <ul>

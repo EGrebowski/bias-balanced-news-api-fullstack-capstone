@@ -41,32 +41,16 @@
     width: 100%
 }
 
-body {
-    font-size: 14px;
-}
-
-
-@media only screen and (max-width: 640px) {
-    nav h3 {
-        margin: 0 auto;
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul {
-        text-align: center;
-        /*    float: none;*/
-    }
-
-    .results .book-entry {
-        height: 100%;
-    }
-}
-
 @media only screen and (min-width: 640px) {
     .col-1 {
-        width: 8.33%;
+        /*        width: 8.33%;*/
+        width: 12.5%;
     }
+    /*
+    .col-150 {
+        width: 12.5%;
+    }
+*/
     .col-2 {
         width: 16.66%;
     }
@@ -100,15 +84,4 @@ body {
     .col-12 {
         width: 100%;
     }
-
-    nav ul {
-        float: right;
-    }
-
-    .results .book-entry {
-        display: block;
-        overflow-y: auto;
-    }
-
-
 }
