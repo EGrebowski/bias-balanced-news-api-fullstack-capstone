@@ -56,17 +56,41 @@ nav li {
     display: inline-block;
 }
 
-header {}
+header {
+    position: relative;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5)), url(images/newspaper-background.jpeg) center center fixed;
+    height: 500px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+header .header-text {
+
+    margin-top: 150px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 header h1 {
-    padding-top: 70px;
     font-size: 4rem;
     text-align: center;
+    font-family: 'Cormorant SC', serif;
+    font-weight: normal;
+}
+
+header h1 span {
+    font-family: 'Rye', cursive;
 }
 
 header h2 {
     max-width: 1000px;
     margin: 0 auto;
+    font-family: 'Roboto Slab', serif;
 }
 
 main {
