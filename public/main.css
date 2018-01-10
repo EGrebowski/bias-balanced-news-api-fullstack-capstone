@@ -32,6 +32,8 @@ nav {
     margin: 0;
     padding: 15px;
     z-index: 100;
+    background-color: black;
+    color: white;
 }
 
 nav ul {
@@ -44,8 +46,10 @@ nav li {
     display: inline-block;
 }
 
+header {}
+
 header h1 {
-    padding-top: 50px;
+    padding-top: 70px;
     font-size: 4rem;
     text-align: center;
 }
@@ -55,12 +59,31 @@ header h1 {
     padding-bottom: 30px;
 }
 
+.info-section div {
+    border: 1px solid black;
+}
+
 main {
     padding-top: 60px;
 }
 
 main .reading-list {
     border: 1px solid black;
+}
+
+main .news {
+    border: 1px solid black;
+}
+
+.index img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+}
+
+.index .meter {
+    width: 20%;
 }
 
 footer {
