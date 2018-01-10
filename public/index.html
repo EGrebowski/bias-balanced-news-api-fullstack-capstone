@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Series Shelf: Organize Books in Your Library by Series</title>
+    <meta name="description" content="Organize your digital library by book series.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Faustina|Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="float-grid.css" type="text/css">
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <nav role="navigation">
+        <h3>Series Shelf</h3>
+        <ul class="nav-buttons">
+            <li><a href="#" id="nav-profile">My Library</a></li>
+            <li><a href="#" id="nav-search">Find Books</a></li>
+            <li><a href="#" id="logout">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <section class="header">
+        <div class="placeholder col-1">w</div>
+        <div class="title col-5">
+            <h1>Series Shelf</h1>
+            <h2>Organize Books in Your Library by Series</h2>
+            <p>Keeping track of your digital library can be overwhelming. Organize your shelves by series in order to better manage and record your reading activity.</p>
+        </div>
+        <div class="placeholder col-1">w</div>
+        <div class="signup-box col-4">
+            <form action="#" name="login" autocomplete="off">
+                <fieldset name="login">Sign Up</fieldset>
+                <label for="username">Username</label><br>
+                <input type="text" name="username" id="username" />
+                <label for="password">Password</label><br>
+                <input type="text" name="password" id="password" />
+                <label for="confirm-password">Confirm Password</label><br>
+                <input type="text" name="confirm-password" id="confirm-password" />
+                <button id="signup-btn" type="submit" class="col-3">Sign Up</button><br/>
+                <div class="form-footer">
+                    <p>Already have an account? </p>
+                    <a id="to-login" href="#">Log In</a>
+                </div>
+            </form>
+        </div>
+        <div class="login-box col-4">
+            <form action="#" name="login" autocomplete="off">
+                <fieldset name="login">Log In</fieldset>
+                <label for="username">Username</label><br>
+                <input type="text" name="username" id="login-username" />
+                <label for="password">Password</label><br>
+                <input type="text" name="password" id="login-password" />
+                <button id="login-btn" type="submit" class="col-3">Log In</button><br/>
+                <div class="form-footer">
+                    <p id="new-user">Don't have an account? </p>
+                    <a href="#" id="to-signup">Sign up</a>
+                </div>
+            </form>
+        </div>
+        <div class="placeholder col-1">w</div>
+    </section>
+
+
+    <section class="search-results col-12">
+        <div class="search col-12">
+            <div class="col-3 placeholder">h</div>
+            <form action="#" name="author-search" id="author-search" class="col-6">
+                <label for="search-input">Find Books</label><br>
+                <input type="text" name="search-input" id="search-input" placeholder="book title" class="col-9 author-search-input">
+                <button type=" submit " class="col-3 ">Search</button>
+            </form>
+            <div class="col-3 placeholder ">f</div>
+        </div>
+        <div id="search-results-placeholder">a</div>
+        <div class="results ">
+        </div>
+    </section>
+
+    <section class="my-profile col-12">
+        <h4>My Library</h4>
+        <form action="#" name="create-series" id="create-series" autocomplete="off">
+        </form>
+        <h4>My Series</h4>
+        <p class="directions">Click on a series to display books assigned to it. Click again to close.</p>
+        <div class="books-by-series">
+        </div>
+        <h4 id="other-books">Other Books</h4>
+        <div class="loose-books-wrapper col-12">
+            <div class="placeholder col-1">w</div>
+            <div class="loose-books col-11">
+            </div>
+        </div>
+    </section>
+
+    <footer role="contentinfo">
+        <ul>
+            <li>
+                <p>&#xa9; 2017 Ellie Grebowski</p>
+            </li>
+            <li><a href="https://github.com/EGrebowski">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="mailto:ellie.grebowski@gmail.com" title="Send me an email">Email</a></li>
+        </ul>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="client.js"></script>
+
+</body>
+
+
+
+</html>
