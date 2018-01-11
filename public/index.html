@@ -6,7 +6,7 @@
     <title>Bias Balanced News</title>
     <meta name="description" content="Combat bias by comparing headlines across different news sources to get a more complete picture of current events.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arimo|Cormorant+SC|Roboto+Slab|Rye" rel="stylesheet">
     <link rel="stylesheet" href="float-grid.css" type="text/css">
     <link rel="stylesheet" href="main.css" type="text/css">
@@ -33,35 +33,48 @@
         <section class="info-section">
             <p>No newsource can be completely unbiased, and the difference in perspective has become more noticeable than ever. Front page headlines from one source may be nothing more than a footnote in another. Bias Balanced allows you to compare headlines from a wide array of news outlets in order to get a more complete picture of current events.</p>
             <div class="icon-container col-3">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <h3>Read</h3>
                 <p class="section-description">Click on an article to read it in a new window.</p>
             </div>
             <div class="placeholder col-1"></div>
             <div class="icon-container col-3">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
                 <h3>Email</h3>
                 <p class="section-description">Short on time? Add articles to a reading list and send the links to your inbox.</p>
             </div>
             <div class="placeholder col-1"></div>
 
             <div class="icon-container col-3">
+                <i class="fa fa-balance-scale" aria-hidden="true"></i>
                 <h3>Compare</h3>
                 <p class="section-description">View where sources fall on the political spectrum and measure how balanced a perspective users are getting.</p>
             </div>
         </section>
 
         <section class="news">
+            <h2>Current Headlines</h2>
             <section class="reading-list col-3">
                 <h3>My Articles</h3>
                 <ol>
-                    <li>This Is My Sample Article 1<button class="delete">x</button></li>
-                    <li>Sample Article 2<button class="delete">x</button></li>
-                    <li>And here is an extra extra long sample article to play with spacing<button class="delete">x</button></li>
-                    <li>Sample Article 4<button class="delete">x</button></li>
+                    <li>This Is My Sample Article 1<i class="fa fa-times" aria-hidden="true"></i>
+                        <p>Source</p>
+                    </li>
+                    <li>Sample Article 2<i class="fa fa-times" aria-hidden="true"></i>
+                        <p>Source</p>
+                    </li>
+                    <li>And here is an extra extra long sample article to play with spacing<i class="fa fa-times" aria-hidden="true"></i>
+                        <p>Source</p>
+                    </li>
+                    <li>Sample Article 4<i class="fa fa-times" aria-hidden="true"></i>
+                        <p>Source</p>
+                    </li>
                 </ol>
                 <form action="#" name="email-reading-list" autocomplete="off">
                     <fieldset name="email"></fieldset>
-                    <label for="email">Email</label><br />
-                    <input type="text" name="email" id="email" />
+                    <!--                    <label for="email">Email</label><br />-->
+                    <p>Enter your email to send this reading list directly to your inbox</p>
+                    <input type="text" name="email" id="email" placeholder="your.name@email.com" />
                     <button type="submit">Send</button>
                 </form>
             </section>

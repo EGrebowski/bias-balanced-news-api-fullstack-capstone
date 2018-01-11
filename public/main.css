@@ -137,7 +137,7 @@ header h2 {
 }
 
 .info-section div {
-    height: 200px;
+    height: 230px;
 }
 
 .info-section .icon-container {
@@ -145,6 +145,12 @@ header h2 {
     color: white;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.info-section .icon-container i {
+    font-size: 3.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .info-section .icon-container h3 {
@@ -158,10 +164,17 @@ header h2 {
     margin: 0 auto;
 }
 
+.news h2 {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
 .news .reading-list {
-    border: 1px solid black;
     padding: 15px;
-    background-color: #91A6DB;
+    background-color: #9ee3e5;
 }
 
 .news .reading-list ol {
@@ -174,7 +187,6 @@ header h2 {
 .news .reading-list ol li {
     padding-top: 8px;
     padding-bottom: 8px;
-    color: #16347E;
 }
 
 .news .reading-list ol li:hover {
@@ -182,28 +194,38 @@ header h2 {
     cursor: pointer;
 }
 
-.news .reading-list ol button {
+.news .reading-list ol i {
     float: right;
-    font-size: .5rem;
-
+    font-size: .6rem;
+    color: black;
 }
 
-.news .reading-list ol button:hover {
-    text-decoration: underline;
+.news .reading-list ol p {
+    font-size: .7rem;
 }
 
 .news .reading-list form {
     font-family: 'Arimo', sans-serif;
 }
 
+.news .reading-list form p {
+    font-size: .7rem;
+    padding-top: 5px;
+}
+
 .news .reading-list input,
 .news .reading-list form button {
     border: 1px solid black;
     display: inline;
+    width: 100%;
+    padding: 3px;
+
 }
 
 .news .reading-list input {
-    width: 100%;
+    font-size: .8rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .news .news-container {
@@ -216,6 +238,8 @@ header h2 {
     padding-top: 20px;
     height: 300px;
     background-color: #F9F8F4;
+    margin-bottom: 20px;
+    margin-right: 1%;
 }
 
 .news .news-container .source h5 {
