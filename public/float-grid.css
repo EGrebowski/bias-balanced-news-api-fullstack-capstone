@@ -46,19 +46,14 @@
         /*        width: 8.33%;*/
         width: 12.5%;
     }
-    /*
-    .col-150 {
-        width: 12.5%;
-    }
-*/
     .col-2 {
         width: 16.66%;
     }
     .col-3 {
-        width: 24%;
+        width: 25%;
     }
     .col-4 {
-        width: 32%;
+        width: 33.33%;
     }
     .col-5 {
         width: 41.66%;
@@ -73,7 +68,7 @@
         width: 64%;
     }
     .col-9 {
-        width: 74%;
+        width: 75%;
     }
     .col-10 {
         width: 83.33%

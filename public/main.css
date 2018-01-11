@@ -20,10 +20,10 @@ html {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    /*
-    background-size: cover;
-    background-color: #202020;
-*/
+}
+
+body {
+    font-size: 16px;
 }
 
 nav,
@@ -46,21 +46,46 @@ nav {
     color: white;
 }
 
+nav h3 {
+    font-family: 'Cormorant SC', serif;
+    font-size: 1.5rem;
+}
+
+nav h3 span {
+    font-family: 'Rye', cursive;
+}
+
+nav h3,
+nav ul {
+    display: inline-block;
+}
+
 nav ul {
     float: right;
-    list-style;
-    none;
+    list-style: none;
 }
 
 nav li {
     display: inline-block;
+    font-family: 'Roboto Slab', serif;
+    padding-right: 15px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav li a:hover {
+    text-decoration: underline;
+    color: #52B1B5;
 }
 
 header {
     position: relative;
     color: white;
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5)), url(images/newspaper-background.jpeg) center center fixed;
-    height: 500px;
+    height: 400px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -69,7 +94,6 @@ header {
 }
 
 header .header-text {
-
     margin-top: 150px;
     width: 80%;
     margin-left: auto;
@@ -91,17 +115,25 @@ header h2 {
     max-width: 1000px;
     margin: 0 auto;
     font-family: 'Roboto Slab', serif;
-}
-
-main {
-    max-width: 1000px;
-    margin: 0 auto;
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.2rem;
+    padding-top: 10px;
 }
 
 
 .info-section {
     padding-top: 30px;
     padding-bottom: 30px;
+    text-align: center;
+    font-family: 'Arimo', sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-section p {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .info-section div {
@@ -109,31 +141,59 @@ main {
 }
 
 .info-section .icon-container {
-    border: 1px solid black;
+    background-color: #52B1B5;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.info-section .icon-container h3 {
+    font-size: 1.7rem;
+    font-weight: normal;
 }
 
 .news {
     padding-top: 60px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .news .reading-list {
     border: 1px solid black;
     padding: 15px;
+    background-color: #91A6DB;
 }
 
 .news .reading-list ol {
     list-style: none;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-family: 'Arimo', sans-serif;
+}
+
+.news .reading-list ol li {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #16347E;
+}
+
+.news .reading-list ol li:hover {
+    color: #294A9E;
+    cursor: pointer;
 }
 
 .news .reading-list ol button {
     float: right;
     font-size: .5rem;
+
 }
 
 .news .reading-list ol button:hover {
     text-decoration: underline;
+}
+
+.news .reading-list form {
+    font-family: 'Arimo', sans-serif;
 }
 
 .news .reading-list input,
@@ -147,18 +207,29 @@ main {
 }
 
 .news .news-container {
-    border: 1px solid black;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
 .news .news-container .source {
-    margin-top: 20px;
+    padding-top: 20px;
+    height: 300px;
+    background-color: #F9F8F4;
+}
+
+.news .news-container .source h5 {
+    padding-bottom: 10px;
 }
 
 .news .news-container ul {
     list-style: none;
+    font-family: 'Arimo', sans-serif;
+}
+
+.news .news-container ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .index img {
