@@ -167,7 +167,12 @@ header h1 .red {
 */
 
 .info-section div {
-    height: 230px;
+    /*    height: 230px;*/
+}
+
+.info-section .placeholder {
+    color: rgba(255, 255, 255, 1.0);
+    font-size: .1rem;
 }
 
 .info-section .icon-container {
@@ -175,6 +180,7 @@ header h1 .red {
     color: white;
     margin-top: 20px;
     margin-bottom: 20px;
+    height: 230px;
 }
 
 .info-section .icon-container i {
@@ -306,6 +312,91 @@ header h1 .red {
     background-color: #E9E8E3;
     margin-left: auto;
     margin-right: auto;
+}
+
+.reading-list-full-page {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reading-list-full-page h3 {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.reading-list-full-page .reading-list-container {
+    background-color: #F9F8F4;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 1px;
+    margin-bottom: 40px;
+}
+
+.reading-list-full-page ol li {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.reading-list-full-page ol li:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.reading-list-full-page ol li a {
+    font-family: 'Arimo', sans-serif;
+}
+
+.reading-list-full-page ol li p {
+    font-size: .8rem;
+}
+
+.reading-list-full-page ol li i {
+    float: right;
+    font-size: .6rem;
+}
+
+.reading-list-full-page ol li i:hover {
+    font-size: 1.2rem;
+}
+
+.reading-list-full-page form {
+    font-family: 'Arimo', sans-serif;
+}
+
+.reading-list-full-page form p {
+    font-size: .9rem;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.reading-list-full-page form input {
+    width: 250px;
+    padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: .9rem;
+    border: 1px solid #A19A8B;
+    border-radius: 1px;
+}
+
+.reading-list-full-page form button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #E9E8E3;
+    border: 1px solid #A19A8B;
+    border-radius: 1px;
 }
 
 .index img {
