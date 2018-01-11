@@ -81,6 +81,13 @@ nav li a:hover {
     color: #52B1B5;
 }
 
+nav li a span {
+    border-radius: 15px;
+    background-color: red;
+    padding-left: 4px;
+    padding-right: 7px;
+}
+
 header {
     position: relative;
     color: white;
@@ -133,7 +140,8 @@ header h2 {
 
 .info-section p {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: .9rem;
 }
 
 .info-section div {
@@ -246,14 +254,20 @@ header h2 {
     padding-bottom: 10px;
 }
 
-.news .news-container ul {
+.news .news-container .source ul {
     list-style: none;
     font-family: 'Arimo', sans-serif;
 }
 
-.news .news-container ul li {
+.news .news-container .source ul li {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.news .news-container .source ul li button {
+    font-size: .7rem;
+    padding: 3px;
+    background-color:
 }
 
 .index img {
@@ -263,9 +277,60 @@ header h2 {
     padding-top: 30px;
 }
 
-.index .meter {
-    width: 20%;
+.index {
+    width: 100%;
+    text-align: center;
 }
+
+/*Gauge Start*/
+
+#logo {
+    display: inline-block;
+    position: relative;
+}
+
+#logo .speedometer {
+    width: 320px;
+    height: 320px;
+    border-radius: 100%;
+    border-left: 60px solid blue;
+    border-top: 60px solid red;
+    border-right: 60px solid white;
+    border-bottom: 60px solid white;
+    -webkit-transform: rotate(45deg);
+    display: inline-block;
+}
+
+#logo .needle {
+    width: 10px;
+    height: 160px;
+    background: #999999;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    display: inline-block;
+    left: 160px;
+    position: absolute;
+    top: 10px;
+    -webkit-animation: move 5s infinite;
+    transform: rotate(-30deg);
+    transform-origin: bottom;
+}
+
+/* @-webkit-keyframes move {
+0% {
+transform:rotate(-90deg);
+}
+50% {
+transform:rotate(90deg);
+}
+100% {
+transform:rotate(-90deg);
+}
+} */
+
+/*Gague End*/
 
 footer {
     text-align: center;

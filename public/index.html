@@ -14,17 +14,20 @@
 
 <body>
     <nav role="navigation">
-        <h3><span>B</span>ias <span>B</span>alanced</h3>
+        <h3><span>B</span>ia<span>s</span><br />
+            <span>B</span>alance<span>d</span></h3>
         <ul class="nav-buttons">
             <li><a href="#" id="nav-home">Home</a></li>
             <li><a href="#" id="nav-news">News</a></li>
+            <li><a href="#" id="nav-news">My Articles <span>4</span></a></li>
             <li><a href="#" id="nav-index">Index</a></li>
         </ul>
     </nav>
 
     <header role="banner">
         <div class="header-text">
-            <h1><span>B</span>ias <span>B</span>alanced</h1>
+            <h1><span>B</span>ia<span>S</span><br />
+                <span>B</span>alance<span>D</span></h1>
             <h2>Compare headlines from different news outlets to get a more complete picture of current events.</h2>
         </div>
     </header>
@@ -57,7 +60,7 @@
             <section class="reading-list col-3">
                 <h3>My Articles</h3>
                 <ol>
-                    <li>This Is My Sample Article 1<i class="fa fa-times" aria-hidden="true"></i>
+                    <li><a>This Is My Sample Article 1</a><i class="fa fa-times" aria-hidden="true"></i>
                         <p>Source</p>
                     </li>
                     <li>Sample Article 2<i class="fa fa-times" aria-hidden="true"></i>
@@ -90,9 +93,11 @@
                 <div class="source col-4">
                     <h5>News Source</h5>
                     <ul class="articles">
-                        <li class="article">Tourist dies on Australian outback hike</li>
-                        <li class="article">US 'could conceivably' rejoin Paris deal</li>
-                        <li class="article">Ivy League student found 'killed' in park</li>
+                        <li class="article"><a href="#">Tourist dies on Australian outback hike</a><br />
+                            <button>Add to my reading list</button>
+                        </li>
+                        <li class="article"><a>US 'could conceivably' rejoin Paris deal</a></li>
+                        <li class="article"><a>Ivy League student found 'killed' in park</a></li>
                     </ul>
                 </div>
                 <div class="source col-4">
@@ -131,7 +136,11 @@
         </section>
 
         <section class="index">
-            <img class="meter" src="images/meter-placeholder.jpg" />
+            <!--            <img class="meter" src="images/meter-placeholder.jpg" />-->
+            <div id="logo"> <span class="speedometer"></span>
+                <span class="needle"></span>
+
+            </div>
             <img class="spectrum" src="images/media-spectrum-placeholder.png" />
         </section>
     </main>
