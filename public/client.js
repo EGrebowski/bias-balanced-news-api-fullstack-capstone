@@ -1,4 +1,64 @@
-//"use strict";
+"use strict";
+
+$(document).ready(function (event) {
+    $(".news").hide();
+    $(".reading-list-full-page").hide();
+    $(".index").hide();
+    $(".added").hide();
+});
+
+// Return to landing page
+$("nav h3").on("click", function (event) {
+    $("header").show();
+    $(".info-section").show();
+    $(".news").hide();
+    $(".reading-list-full-page").hide();
+    $(".index").hide();
+});
+
+//navigate to news section from navbar
+$('#nav-news').on("click", function (event) {
+    $(".news").show();
+    $('header').hide();
+    $('.info-section').hide();
+    $(".reading-list-full-page").hide();
+    $(".index").hide();
+});
+
+//navigate to reading list fullpage section from navbar
+$('#nav-reading-list').on("click", function (event) {
+    $(".reading-list-full-page").show();
+    $(".news").hide();
+    $('header').hide();
+    $('.info-section').hide();
+    $(".index").hide();
+});
+
+//navigate to index section from navbar
+$('#nav-index').on("click", function (event) {
+    $(".reading-list-full-page").hide();
+    $(".news").hide();
+    $('header').hide();
+    $('.info-section').hide();
+    $(".index").show();
+});
+
+//toggle Add button with Success Message
+$('.add').on("click", this, function (event) {
+    $(this).next('.added').toggle();
+    $(this).toggle();
+});
+
+// show or hide books in series
+//            $('.books-by-series .book-entry').hide();
+//            $('.series-title').on("click", this, function (event) {
+//                console.log("toggle books");
+//                $(this).nextUntil('.series-title').toggle();
+//            });
+
+
+
+
 //// logged in username global variable
 //var username = "";
 //var searchTerm = "";
@@ -216,158 +276,9 @@
 //}
 //
 //
-//$(document).ready(function (event) {
-//    $(".nav-buttons").hide();
-//    $(".search-results").hide();
-//    $(".my-profile").hide();
-//    $(".new-releases-full").hide();
-//    $(".login-box").hide();
-//    $(".series-wrapper").hide();
-//});
-//
-//// Return to landing page
-//$("nav h3").on("click", function (event) {
-//    $(".header").show();
-//    $(".search-results").hide();
-//    $(".my-profile").hide();
-//    $(".login-box").hide();
-//});
-//
-//// Switch login and signup forms
-//$('#to-login').on("click", function (event) {
-//    $('.signup-box').hide();
-//    $('.login-box').show();
-//});
-//
-//$('#to-signup').on("click", function (event) {
-//    $('.login-box').hide();
-//    $('.signup-box').show();
-//});
-//
-//// From login
-//$("#login-btn").on("click", function (event) {
-//    event.preventDefault();
-//    // take input from user
-//    var inputEmail = $('#login-username').val();
-//    var inputPassword = $('#login-password').val();
-//    console.log(inputEmail, inputPassword);
-//    // check username for spaces, empty, undefined
-//    if ((!inputEmail) || (inputEmail.length < 1) || (inputEmail.indexOf(' ') > 0)) {
-//        alert('Invalid username');
-//    }
-//    // check password for spaces, empty, undefined
-//    else if ((!inputPassword) || (inputPassword.length < 1) || (inputPassword.indexOf(' ') > 0)) {
-//        alert('Invalid password');
-//    }
-//    // if username and password are valid
-//    else {
-//        // create user object
-//        var usernamePwObject = {
-//            username: inputEmail,
-//            password: inputPassword
-//        };
-//        username = inputEmail;
-//        // make API call with user object
-//        $.ajax({
-//                type: "POST",
-//                url: "/login",
-//                dataType: 'json',
-//                data: JSON.stringify(usernamePwObject),
-//                contentType: 'application/json'
-//            })
-//            // if API call is successful
-//            .done(function (result) {
-//                // display result and login user
-//                console.log(result);
-//                username = result.username;
-//                $('.header').hide();
-//                $('.my-profile').show();
-//                $(".nav-buttons").show();
-//                populateFavoritesContainer(username);
-//                assignUserToSeries(username)
-//                populateSeriesContainer(username);
-//            })
-//            // if API call unsuccessful
-//            .fail(function (jqXHR, error, errorThrown) {
-//                // return errors
-//                console.log(jqXHR);
-//                console.log(error);
-//                console.log(errorThrown);
-//                alert('Invalid user and password combination');
-//            });
-//    }
-//});
-//
-//// From signup
-//$("#signup-btn").on("click", function (event) {
-//    event.preventDefault();
-//    // take input from user
-//    var inputEmail = $('#username').val();
-//    var inputPassword = $('#password').val();
-//    var confirmPassword = $('#confirm-password').val();
-//    console.log(inputEmail, inputPassword, confirmPassword);
-//    // validate email
-//    if ((!inputEmail) || (inputEmail.length < 1) || (inputEmail.indexOf(' ') > 0)) {
-//        alert('Invalid username');
-//    }
-//    // validate password
-//    else if ((!inputPassword) || (inputPassword.length < 1) || (inputPassword.indexOf(' ') > 0)) {
-//        alert('Invalid password');
-//    }
-//    // validate confirmPassword
-//    else if (inputPassword != confirmPassword) {
-//        alert('Passwords must match');
-//    }
-//    // if username and password are valid, make api call to create new user
-//    else {
-//        // generate user/password object
-//        var usernamePwObject = {
-//            username: inputEmail,
-//            password: inputPassword
-//        };
-//        // using user/password object, make the local login API call
-//        $.ajax({
-//                type: "POST",
-//                url: "/users/create",
-//                dataType: 'json',
-//                data: JSON.stringify(usernamePwObject),
-//                contentType: 'application/json'
-//            })
-//            // if login is successful
-//            .done(function (result) {
-//                // display results
-//                $('.header').hide();
-//                $('.search-results').show();
-//                $(".nav-buttons").show();
-//            })
-//            // if login is unsuccessful
-//            .fail(function (jqXHR, error, errorThrown) {
-//                // display errors
-//                console.log(jqXHR);
-//                console.log(error);
-//                console.log(errorThrown);
-//            });
-//    };
-//});
-//
-//// navigate to search page from navbar
-//$('#nav-search').on("click", function (event) {
-//    $('.dashboard').hide();
-//    $('.header').hide();
-//    $(".my-profile").hide();
-//    $(".new-releases-full").hide();
-//    $(".search-results").show();
-//});
-//
-//// navigate to profile from navbar
-//$('#nav-profile').on("click", function (event) {
-//    $('.header').hide();
-//    $('.dashboard').hide();
-//    $(".search-results").hide();
-//    $(".new-releases-full").hide();
-//    $(".my-profile").show();
-//});
-//
+
+
+
 //// search for books
 //$("#author-search").on("submit", function (event) {
 //    // take input from user

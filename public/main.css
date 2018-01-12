@@ -31,6 +31,7 @@ header,
 main,
 .info-section,
 .news,
+.reading-list-full-page,
 .index {
     display: block;
     overflow: auto;
@@ -51,9 +52,12 @@ nav h3 {
     font-size: 1.5rem;
 }
 
+nav h3:hover {
+    cursor: pointer;
+}
+
 nav h3 span {
     font-weight: 900;
-
 }
 
 nav h3 .red {
@@ -64,7 +68,6 @@ nav h3 .red {
 nav h3 .blue {
     /*    color: #000EA6;*/
     text-shadow: -2px 0 #000EA6, 0 2px #000EA6, 2px 0 #000EA6, 0 -2px #000EA6;
-
 }
 
 nav h3,
@@ -206,11 +209,13 @@ header h1 .red {
     font-family: 'Roboto Slab', serif;
     font-weight: normal;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .news .reading-list {
     padding: 15px;
     background-color: #6ebef4;
+    margin-bottom: 20px;
 }
 
 .news .reading-list h3 {
@@ -281,7 +286,7 @@ header h1 .red {
 
 .news .news-container .source {
     padding-top: 20px;
-    height: 300px;
+    height: 350px;
     background-color: #F9F8F4;
     margin-bottom: 20px;
     margin-right: 1%;
@@ -308,16 +313,29 @@ header h1 .red {
 
 .news .news-container .source ul li button {
     font-size: .7rem;
-    padding: 3px;
+    padding: 5px;
     background-color: #E9E8E3;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5px;
+}
+
+.news .news-container .source ul li button:hover {
+    cursor: pointer;
+}
+
+.news .news-container .source ul li p {
+    font-size: .7rem;
+    background-color: #E9E8E3;
+    padding: 5px;
+    margin-top: 5px;
 }
 
 .reading-list-full-page {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 80px;
 }
 
 .reading-list-full-page h3 {
@@ -409,6 +427,7 @@ header h1 .red {
 .index {
     width: 100%;
     text-align: center;
+    padding-top: 80px;
 }
 
 /*Gauge Start*/
