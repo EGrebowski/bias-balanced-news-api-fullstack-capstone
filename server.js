@@ -147,15 +147,7 @@ function closeServer() {
 // external API call
 var getHeadlinesFromNewsApi = function (sourceName) {
     var emitter = new events.EventEmitter();
-    //    const sources = [
-    //        "the-new-york-times",
-    //        "politico",
-    //        "fox-news",
-    //        "the-washington-post",
-    //        "reuters",
-    //        ""
-    //    ]
-    unirest.get('https://newsapi.org/v2/top-headlines?sources=' + sourceName + "&apiKey=d305c428455547f8a69a84eeb0203846")
+    unirest.get('https://newsapi.org/v2/top-headlines?sources=' + sourceName + "&pageSize=3&apiKey=d305c428455547f8a69a84eeb0203846")
         //after api call we get the response inside the "response" parameter
         .end(function (response) {
             //success scenario

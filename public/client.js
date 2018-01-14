@@ -4,7 +4,6 @@ $(document).ready(function (event) {
     $(".news").hide();
     $(".reading-list-full-page").hide();
     $(".index").hide();
-    $(".added").hide();
 });
 
 // Get started
@@ -53,10 +52,12 @@ $('#nav-index').on("click", function (event) {
 });
 
 //toggle Add button with Success Message
-$('.add').on("click", this, function (event) {
-    $(this).next('.added').toggle();
-    $(this).toggle();
-});
+function toggleAddButton() {
+    $('.add').on("click", this, function (event) {
+        $(this).next('.added').toggle();
+        $(this).toggle();
+    });
+}
 
 
 function getHeadlinesBySource(sourceName) {
@@ -88,23 +89,45 @@ function displayHeadlinesBySource(sourceName, data) {
     buildTheHtmlOutput += '<ul class="articles">';
     $.each(data, function (dataKey, dataValue) {
         buildTheHtmlOutput += '<li class="article">';
-        buildTheHtmlOutput += '<a href="' + data.value.url + '">' + data.value.title + '</a><br />';
+        buildTheHtmlOutput += '<a href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
         buildTheHtmlOutput += '<button class="add">Add to my reading list</button>';
         buildTheHtmlOutput += '<p class="added">Added to "My Articles"</p>';
         buildTheHtmlOutput += '</li>';
     });
     buildTheHtmlOutput += '</ul>';
     //use the HTML output to show it in the index.html
-    $("#" + sourceData).html(buildTheHtmlOutput);
+    $("#" + sourceName).html(buildTheHtmlOutput);
+    // toggle Add button
+    $(".added").hide();
+    $('.add').on("click", this, function (event) {
+        $(this).next('.added').toggle();
+        $(this).toggle();
+    });
 }
 
 // get headlines with external API
 $("#nav-news").on("click", function (event) {
     event.preventDefault();
     getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("politico");
+    getHeadlinesBySource("fox-news");
+    getHeadlinesBySource("the-washington-post");
+    getHeadlinesBySource("reuters");
+    getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("the-new-york-times");
 });
 $("#get-started").on("click", function (event) {
     getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("politico");
+    getHeadlinesBySource("fox-news");
+    getHeadlinesBySource("the-washington-post");
+    getHeadlinesBySource("reuters");
+
 });
 
 //// logged in username global variable
