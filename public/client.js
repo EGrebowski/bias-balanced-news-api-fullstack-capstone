@@ -52,12 +52,10 @@ $('#nav-index').on("click", function (event) {
 });
 
 //toggle Add button with Success Message
-function toggleAddButton() {
-    $('.add').on("click", this, function (event) {
-        $(this).next('.added').toggle();
-        $(this).toggle();
-    });
-}
+//    $('.add').on("click", this, function (event) {
+//        $(this).next('.added').toggle();
+//        $(this).toggle();
+//    });
 
 
 function getHeadlinesBySource(sourceName) {
@@ -90,6 +88,9 @@ function displayHeadlinesBySource(sourceName, data) {
     $.each(data, function (dataKey, dataValue) {
         buildTheHtmlOutput += '<li class="article">';
         buildTheHtmlOutput += '<a href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
+        buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-title" value="' + dataValue.title + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-url" value="' + dataValue.url + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-source" value="' + dataValue.source.name + '">';
         buildTheHtmlOutput += '<button class="add">Add to my reading list</button>';
         buildTheHtmlOutput += '<p class="added">Added to "My Articles"</p>';
         buildTheHtmlOutput += '</li>';
@@ -109,26 +110,56 @@ function displayHeadlinesBySource(sourceName, data) {
 $("#nav-news").on("click", function (event) {
     event.preventDefault();
     getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("politico");
+    getHeadlinesBySource("usa-today");
     getHeadlinesBySource("fox-news");
     getHeadlinesBySource("the-washington-post");
     getHeadlinesBySource("reuters");
-    getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("the-new-york-times");
+    getHeadlinesBySource("the-wall-street-journal");
+    getHeadlinesBySource("the-huffington-post");
+    getHeadlinesBySource("politico");
+    getHeadlinesBySource("financial-post");
+    //    getHeadlinesBySource("fortune");
 });
 $("#get-started").on("click", function (event) {
     getHeadlinesBySource("the-new-york-times");
-    getHeadlinesBySource("politico");
+    getHeadlinesBySource("usa-today");
     getHeadlinesBySource("fox-news");
     getHeadlinesBySource("the-washington-post");
     getHeadlinesBySource("reuters");
-
+    getHeadlinesBySource("the-wall-street-journal");
+    getHeadlinesBySource("the-huffington-post");
+    getHeadlinesBySource("politico");
+    getHeadlinesBySource("financial-post");
 });
+
+$(document).on('click', '.add', function (event) {
+    let articleTitle = $(this).parent().find('.add-to-reading-list-title').val();
+    let articleUrl = $(this).parent().find('.add-to-reading-list-url').val();
+    let articleSource = $(this).parent().find('.add-to-reading-list-source').val();
+    const newsArticle = {
+        'articleTitle': articleTitle,
+        'articleUrl': articleUrl,
+        'articleSource': articleSource
+    };
+    console.log(newsArticle);
+    $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(newsArticle),
+            url: '/add-to-reading-list'
+        })
+        .done(function (result) {
+            console.log(result);
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            alert('Oops...', 'Please try again', 'error');
+        });
+});
+
 
 //// logged in username global variable
 //var username = "";
@@ -354,45 +385,7 @@ $("#get-started").on("click", function (event) {
 //    $('.book-entry').eventCurrentTarget.hide();
 //});
 //
-//$(document).on('submit', '.add-to-favorites', function (event) {
-//    event.preventDefault();
-//    var bookTitle = $(this).parent().find('.add-to-favorites-book-title').val();
-//    var bookSubtitle = $(this).parent().find('.add-to-favorites-book-subtitle').val();
-//    var bookAuthor = $(this).parent().find('.add-to-favorites-book-author').val();
-//    var bookThumbnail = $(this).parent().find('.add-to-favorites-book-thumbnail').val();
-//    var bookUser = $(this).parent().find('.add-to-favorites-book-user').val();
-//    var bookPublished = $(this).parent().find('.add-to-favorites-publish-date').val();
-//
-//    var bookObject = {
-//        'bookTitle': bookTitle,
-//        'bookSubtitle': bookSubtitle,
-//        'bookAuthor': bookAuthor,
-//        'bookThumbnail': bookThumbnail,
-//        'bookUser': bookUser,
-//        'bookPublished': bookPublished,
-//        'bookSeries': ""
-//    };
-//    console.log(bookObject);
-//
-//    $.ajax({
-//            method: 'POST',
-//            dataType: 'json',
-//            contentType: 'application/json',
-//            data: JSON.stringify(bookObject),
-//            url: '/add-to-favorites/',
-//        })
-//        .done(function (result) {
-//            populateFavoritesContainer(username);
-//            console.log(result);
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            console.log(jqXHR);
-//            console.log(error);
-//            console.log(errorThrown);
-//            sweetAlert('Oops...', 'Please try again', 'error');
-//        });
-//});
-//
+
 //
 //
 //// populate the series dropdown

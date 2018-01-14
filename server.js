@@ -65,85 +65,8 @@ function closeServer() {
 }
 
 
-//// POST: signing in a user
-//// next step is verifying and validating the user credentials
-//app.post('/login', function (req, res) {
-//    var user = req.body.username;
-//    var pwd = req.body.password;
-//    User
-//        .findOne({
-//            username: req.body.username
-//        }, function (err, items) {
-//            if (err) {
-//                return res.status(500).json({
-//                    message: "Internal server error"
-//                });
-//            }
-//            if (!items) {
-//                // bad username
-//                return res.status(401).json({
-//                    message: "Not found!"
-//                });
-//            } else {
-//                items.validatePassword(req.body.password, function (err, isValid) {
-//                    if (err) {
-//                        console.log('There was an error validating the password.');
-//                    }
-//                    if (!isValid) {
-//                        return res.status(401).json({
-//                            message: "Not found"
-//                        });
-//                    } else {
-//                        var logInTime = new Date();
-//                        console.log("User logged in: " + req.body.username + ' at ' + logInTime);
-//                        return res.json(items);
-//                    }
-//                });
-//            };
-//        });
-//});
-//
-//// POST: creating a new user
-//// TODO: ensure a user cannot sign up with the same username as already exists in the system
-//app.post('/users/create', function (req, res) {
-//    var username = req.body.username;
-//    username = username.trim();
-//    var password = req.body.password;
-//    password = password.trim();
-//    bcrypt.genSalt(10, function (err, salt) {
-//        if (err) {
-//            return res.status(500).json({
-//                message: 'Internal server error'
-//            });
-//        }
-//
-//        bcrypt.hash(password, salt, function (err, hash) {
-//            if (err) {
-//                return res.status(500).json({
-//                    message: 'Internal server error'
-//                });
-//            }
-//
-//            User.create({
-//                username: username,
-//                password: hash,
-//            }, function (err, item) {
-//                if (err) {
-//                    return res.status(500).json({
-//                        message: 'Internal Server Error'
-//                    });
-//                }
-//                if (item) {
-//                    console.log("User `" + username + "` created.");
-//                    return res.json(item);
-//                }
-//            });
-//        });
-//    });
-//});
-//
-////// ----------- BOOK ENDPOINTS ------------------------
-//
+
+
 // external API call
 var getHeadlinesFromNewsApi = function (sourceName) {
     var emitter = new events.EventEmitter();
@@ -177,7 +100,24 @@ app.get("/get-headlines/:sourceName", function (req, res) {
     });
 });
 
-
+// POST: add article to reading list
+app.post('/add-to-reading-list', function (req, res) {
+    // send local data to database
+    Article.create({
+        articleTitle: req.body.articleTitle,
+        articleUrl: req.body.articleUrl,
+        articleSource: req.body.articleSource,
+    }, function (err, article) {
+        // return the result of the DB call
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        // send the result back to client.js
+        res.status(201).json(article);
+    });
+});
 
 //// POST: creating a new book
 //app.post('/add-to-favorites', function (req, res) {
@@ -196,7 +136,7 @@ app.get("/get-headlines/:sourceName", function (req, res) {
 //            return res.status(500).json({
 //                message: 'Internal Server Error'
 //            });
-//        }
+////        }
 //        // send the result back to client.js
 //        res.status(201).json(lead);
 //
@@ -289,6 +229,84 @@ app.get("/get-headlines/:sourceName", function (req, res) {
 //        });
 //    });
 //});
+
+//// POST: signing in a user
+//// next step is verifying and validating the user credentials
+//app.post('/login', function (req, res) {
+//    var user = req.body.username;
+//    var pwd = req.body.password;
+//    User
+//        .findOne({
+//            username: req.body.username
+//        }, function (err, items) {
+//            if (err) {
+//                return res.status(500).json({
+//                    message: "Internal server error"
+//                });
+//            }
+//            if (!items) {
+//                // bad username
+//                return res.status(401).json({
+//                    message: "Not found!"
+//                });
+//            } else {
+//                items.validatePassword(req.body.password, function (err, isValid) {
+//                    if (err) {
+//                        console.log('There was an error validating the password.');
+//                    }
+//                    if (!isValid) {
+//                        return res.status(401).json({
+//                            message: "Not found"
+//                        });
+//                    } else {
+//                        var logInTime = new Date();
+//                        console.log("User logged in: " + req.body.username + ' at ' + logInTime);
+//                        return res.json(items);
+//                    }
+//                });
+//            };
+//        });
+//});
+//
+//// POST: creating a new user
+//// TODO: ensure a user cannot sign up with the same username as already exists in the system
+//app.post('/users/create', function (req, res) {
+//    var username = req.body.username;
+//    username = username.trim();
+//    var password = req.body.password;
+//    password = password.trim();
+//    bcrypt.genSalt(10, function (err, salt) {
+//        if (err) {
+//            return res.status(500).json({
+//                message: 'Internal server error'
+//            });
+//        }
+//
+//        bcrypt.hash(password, salt, function (err, hash) {
+//            if (err) {
+//                return res.status(500).json({
+//                    message: 'Internal server error'
+//                });
+//            }
+//
+//            User.create({
+//                username: username,
+//                password: hash,
+//            }, function (err, item) {
+//                if (err) {
+//                    return res.status(500).json({
+//                        message: 'Internal Server Error'
+//                    });
+//                }
+//                if (item) {
+//                    console.log("User `" + username + "` created.");
+//                    return res.json(item);
+//                }
+//            });
+//        });
+//    });
+//});
+
 
 // catch-all endpoint if client makes request to non-existent endpoint
 app.use('*', function (req, res) {

@@ -326,6 +326,10 @@ header h1 .red {
     color: black;
 }
 
+.news .news-container .source ul li a:hover {
+    color: blue;
+}
+
 .news .news-container .source ul li button {
     font-size: .7rem;
     padding: 5px;
