@@ -129,41 +129,27 @@ app.get('/get-reading-list', function (req, res) {
     });
 });
 
-//// POST: creating a new series
-//// local API endpoint in server.js
-//app.post('/series/create', function (req, res) {
-//    // step b5: send the local data to the database
-//    Series.create({
-//        bookUser: req.body.username,
-//        bookSeries: req.body.bookSeries
-//    }, function (err, lead) {
-//        // step b6: return the result of DB call
-//        if (err) {
-//            return res.status(500).json({
-//                message: 'Internal Server Error'
-//            });
-//        }
-//        // step b7: send the result back to client.js
-//        res.status(201).json(lead);
+app.delete('/get-reading-list/:id', function (req, res) {
+    Article.findByIdAndRemove(req.params.id).exec().then(function (Article) {
+        return res.status(204).end();
+    }).catch(function (err) {
+        return res.status(500).json({
+            message: 'Internal Server Error'
+        });
+    });
+});
+
+//// DELETE: deleting a lead
+//app.delete('/get-favorites/:id', function (req, res) {
+//    Book.findByIdAndRemove(req.params.id).exec().then(function (Book) {
+//        return res.status(204).end();
+//    }).catch(function (err) {
+//        return res.status(500).json({
+//            message: 'Internal Server Error'
+//        });
 //    });
 //});
-//
-//// GET: get series list
-//app.get('/get-series/:username', function (req, res) {
-//    console.log(req.params.username, "test");
-//    Series.find({
-//            bookUser: req.params.username
-//        },
-//        function (err, item) {
-//            if (err) {
-//                return res.status(500).json({
-//                    message: 'Internal Server Error'
-//                });
-//            }
-//            res.status(200).json(item);
-//        });
-//});
-//
+
 //// PUT: update a book entry with series
 //app.put('/get-favorites/:id', function (req, res) {
 //    var toUpdate = {};
@@ -187,16 +173,7 @@ app.get('/get-reading-list', function (req, res) {
 //});
 //
 //
-//// DELETE: deleting a lead
-//app.delete('/get-favorites/:id', function (req, res) {
-//    Book.findByIdAndRemove(req.params.id).exec().then(function (Book) {
-//        return res.status(204).end();
-//    }).catch(function (err) {
-//        return res.status(500).json({
-//            message: 'Internal Server Error'
-//        });
-//    });
-//});
+
 
 //// POST: signing in a user
 //// next step is verifying and validating the user credentials

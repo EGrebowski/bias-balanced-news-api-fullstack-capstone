@@ -139,6 +139,7 @@ function displayReadingList(articles) {
             console.log(value);
             buildTheHtmlOutput += '<li><a href="' + value.articleUrl + '">' + value.articleTitle + '</a><i class="fa fa-times" aria-hidden="true"></i>';
             buildTheHtmlOutput += '<p>' + value.articleSource + '</p>';
+            buildTheHtmlOutput += '<input type="hidden" class="article-id" value="' + value._id + '">';
             buildTheHtmlOutput += '</li>';
         });
         $(".reading-list-sidebar-articles").html(buildTheHtmlOutput);
@@ -171,6 +172,7 @@ $("#get-started").on("click", function (event) {
     getHeadlinesBySource("financial-post");
 });
 
+// add article to reading list
 $(document).on('click', '.add', function (event) {
     let articleTitle = $(this).parent().find('.add-to-reading-list-title').val();
     let articleUrl = $(this).parent().find('.add-to-reading-list-url').val();
@@ -200,6 +202,49 @@ $(document).on('click', '.add', function (event) {
         });
 });
 
+// delete article from reading list
+$(document).on('click', '.fa-times', function (event) {
+    var articleID = $(this).parent().find('.article-id').val();
+    console.log(articleID);
+    $.ajax({
+            method: 'DELETE',
+            url: '/get-reading-list/' + articleID
+        })
+        .done(function (result) {
+            // refresh to remove displayed article
+            populateReadingList();
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            // return errors
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            alert('Something went wrong');
+        });
+});
+
+//$(document).on('submit', '.delete-book', function (event) {
+//    event.preventDefault();
+//    var bookUser = $(this).parent().find('.add-to-series-book-user').val();
+//    let idParameter = $(this).parent().find('.formID').val();
+//    console.log(idParameter);
+//    $.ajax({
+//            method: 'DELETE',
+//            url: "/get-favorites/" + idParameter
+//        })
+//
+//        .done(function (result) {
+//            // refresh profile to remove displayed book
+//            populateFavoritesContainer(bookUser);
+//        })
+//        .fail(function (jqXHR, error, errorThrown) {
+//            // return errors
+//            console.log(jqXHR);
+//            console.log(error);
+//            console.log(errorThrown);
+//            alert('Something went wrong');
+//        });
+//});
 
 //// logged in username global variable
 //var username = "";
