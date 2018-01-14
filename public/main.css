@@ -238,6 +238,13 @@ header h1 .red {
     text-align: center;
 }
 
+.news .reading-list-sidebar .no-articles {
+    font-family: 'Arimo', sans-serif;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .news .reading-list-sidebar ol {
     list-style: none;
     margin-top: 10px;
@@ -345,9 +352,14 @@ header h1 .red {
 
 .news .news-container .source ul li p {
     font-size: .7rem;
-    background-color: #E9E8E3;
+    /*    background-color: #E9E8E3;*/
     padding: 5px;
     margin-top: 5px;
+    color: green;
+}
+
+.news .news-container .source ul li p i {
+    padding-right: 5px;
 }
 
 .reading-list-full-page {
@@ -380,6 +392,13 @@ header h1 .red {
     padding-bottom: 50px;
     border-radius: 1px;
     margin-bottom: 40px;
+}
+
+.reading-list-full-page .no-articles {
+    font-family: 'Arimo', sans-serif;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .reading-list-full-page ol li {
