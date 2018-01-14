@@ -1,70 +1,70 @@
-//"use strict";
-//
+"use strict";
+
 //var User = require('./models/user');
 //var Book = require('./models/book');
 //var Series = require('./models/series')
-//var bodyParser = require('body-parser');
-//var config = require('./config');
-//var unirest = require('unirest');
-//var events = require('events');
-//var mongoose = require('mongoose');
-//var cors = require('cors');
-//var bcrypt = require('bcryptjs');
-//var passport = require('passport');
-//var BasicStrategy = require('passport-http').BasicStrategy;
-//var https = require('https');
-//var http = require('http');
-//var express = require('express');
-//var app = express();
-//app.use(bodyParser.json());
-//app.use(cors());
-//app.use(express.static('public'));
-//
-//mongoose.Promise = global.Promise;
-//
-//var server = undefined;
-//
-//function runServer(databaseUrl) {
-//    if (databaseUrl == "") {
-//        databaseUrl = config.DATABASE_URL;
-//    }
-//    return new Promise(function (resolve, reject) {
-//        mongoose.connect(databaseUrl, function (err) {
-//            if (err) {
-//                return reject(err);
-//            }
-//            server = app.listen(config.PORT, function () {
-//                console.log('Listening on localhost:' + config.PORT);
-//                resolve();
-//            }).on('error', function (err) {
-//                mongoose.disconnect();
-//                reject(err);
-//            });
-//        });
-//    });
-//}
-//
-//if (require.main === module) {
-//    runServer(config.DATABASE_URL).catch(function (err) {
-//        return console.error(err);
-//    });
-//};
-//
-//function closeServer() {
-//    return mongoose.disconnect().then(function () {
-//        return new Promise(function (resolve, reject) {
-//            console.log('Closing server');
-//            server.close(function (err) {
-//                if (err) {
-//                    return reject(err);
-//                }
-//                resolve();
-//            });
-//        });
-//    });
-//}
-//
-//
+var bodyParser = require('body-parser');
+var config = require('./config');
+var unirest = require('unirest');
+var events = require('events');
+var mongoose = require('mongoose');
+var cors = require('cors');
+var bcrypt = require('bcryptjs');
+var passport = require('passport');
+var BasicStrategy = require('passport-http').BasicStrategy;
+var https = require('https');
+var http = require('http');
+var express = require('express');
+var app = express();
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.static('public'));
+
+mongoose.Promise = global.Promise;
+
+var server = undefined;
+
+function runServer(databaseUrl) {
+    if (databaseUrl == "") {
+        databaseUrl = config.DATABASE_URL;
+    }
+    return new Promise(function (resolve, reject) {
+        mongoose.connect(databaseUrl, function (err) {
+            if (err) {
+                return reject(err);
+            }
+            server = app.listen(config.PORT, function () {
+                console.log('Listening on localhost:' + config.PORT);
+                resolve();
+            }).on('error', function (err) {
+                mongoose.disconnect();
+                reject(err);
+            });
+        });
+    });
+}
+
+if (require.main === module) {
+    runServer(config.DATABASE_URL).catch(function (err) {
+        return console.error(err);
+    });
+};
+
+function closeServer() {
+    return mongoose.disconnect().then(function () {
+        return new Promise(function (resolve, reject) {
+            console.log('Closing server');
+            server.close(function (err) {
+                if (err) {
+                    return reject(err);
+                }
+                resolve();
+            });
+        });
+    });
+}
+
+
 //// POST: signing in a user
 //// next step is verifying and validating the user credentials
 //app.post('/login', function (req, res) {
@@ -144,41 +144,49 @@
 //
 ////// ----------- BOOK ENDPOINTS ------------------------
 //
-//// external API call
-//var getBooksFromGoogle = function (searchTerm) {
-//    var emitter = new events.EventEmitter();
-//    unirest.get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&maxResults=30&key=AIzaSyB4W3-wdcG_-eTcoNMuLalqYQtnkcCv-d0')
-//        //after api call we get the response inside the "response" parameter
-//        .end(function (response) {
-//            //success scenario
-//            if (response.ok) {
-//                emitter.emit('end', response.body);
-//            }
-//            //failure scenario
-//            else {
-//                emitter.emit('error', response.code);
-//            }
-//        });
-//    return emitter;
-//};
-//
-//
-//// GET: make API call for Google Books search results
-//app.get('/search/:searchTerm', function (req, res) {
-//    var searchRequest = getBooksFromGoogle(req.params.searchTerm);
-//    //get the data from the first api call
-//    searchRequest.on('end', function (item) {
-//        res.json(item);
-//    });
-//
-//    //error handling
-//    searchRequest.on('error', function (code) {
-//        res.sendStatus(code);
-//    });
-//});
-//
-//
-//
+// external API call
+var getHeadlinesFromNewsApi = function (sourceName) {
+    var emitter = new events.EventEmitter();
+    //    const sources = [
+    //        "the-new-york-times",
+    //        "politico",
+    //        "fox-news",
+    //        "the-washington-post",
+    //        "reuters",
+    //        ""
+    //    ]
+    unirest.get('https://newsapi.org/v2/top-headlines?sources=' + sourceName + "&apiKey=d305c428455547f8a69a84eeb0203846")
+        //after api call we get the response inside the "response" parameter
+        .end(function (response) {
+            //success scenario
+            if (response.ok) {
+                emitter.emit('end', response.body);
+            }
+            //failure scenario
+            else {
+                emitter.emit('error', response.code);
+            }
+        });
+    return emitter;
+};
+
+
+// GET: make API call for News API headlines
+app.get("/get-headlines/:sourceName", function (req, res) {
+    var searchRequest = getHeadlinesFromNewsApi(req.params.sourceName);
+    //get the data from the first api call
+    searchRequest.on('end', function (item) {
+        res.json(item);
+    });
+
+    //error handling
+    searchRequest.on('error', function (code) {
+        res.sendStatus(code);
+    });
+});
+
+
+
 //// POST: creating a new book
 //app.post('/add-to-favorites', function (req, res) {
 //    // send the local data to the database
@@ -289,14 +297,14 @@
 //        });
 //    });
 //});
-//
-//// catch-all endpoint if client makes request to non-existent endpoint
-//app.use('*', function (req, res) {
-//    res.status(404).json({
-//        message: 'Not Found'
-//    });
-//});
-//
-//exports.app = app;
-//exports.runServer = runServer;
-//exports.closeServer = closeServer;
+
+// catch-all endpoint if client makes request to non-existent endpoint
+app.use('*', function (req, res) {
+    res.status(404).json({
+        message: 'Not Found'
+    });
+});
+
+exports.app = app;
+exports.runServer = runServer;
+exports.closeServer = closeServer;

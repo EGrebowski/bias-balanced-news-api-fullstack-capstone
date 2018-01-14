@@ -197,6 +197,21 @@ header h1 .red {
     font-weight: normal;
 }
 
+.info-section button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+    background-color: #07A0FB;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.info-section button:hover {
+    cursor: pointer;
+}
+
 .news {
     padding-top: 60px;
     width: 90%;
@@ -347,7 +362,11 @@ header h1 .red {
 }
 
 .reading-list-full-page .reading-list-container {
-    background-color: #F9F8F4;
+    /*    background-color: #F9F8F4;*/
+    border: 2px solid #006099;
+    border-top: 5px solid #006099;
+    border-bottom: 5px solid #006099;
+    border-top-left-radius: 20px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -368,6 +387,8 @@ header h1 .red {
 
 .reading-list-full-page ol li:hover {
     background-color: rgba(0, 0, 0, 0.03);
+    color: #0083D0;
+
 }
 
 .reading-list-full-page ol li a {
@@ -429,6 +450,39 @@ header h1 .red {
     text-align: center;
     padding-top: 80px;
 }
+
+.index h3 {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: normal;
+    padding-bottom: 40px;
+}
+
+.index #key {
+    margin-bottom: 20px;
+    font-family: 'Arimo', sans-serif;
+}
+
+.index .color-patch-blue,
+.index .key-blue p,
+.index .color-patch-red,
+.index .key-red p {
+    display: inline-block;
+}
+
+.index .key-blue .color-patch-blue {
+    background-color: blue;
+    width: 10px;
+    height: 10px;
+}
+
+.index .key-red .color-patch-red {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+}
+
 
 /*Gauge Start*/
 

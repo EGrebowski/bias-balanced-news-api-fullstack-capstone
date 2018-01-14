@@ -7,6 +7,15 @@ $(document).ready(function (event) {
     $(".added").hide();
 });
 
+// Get started
+$("#get-started").on("click", function (event) {
+    $(".news").show();
+    $('header').hide();
+    $('.info-section').hide();
+    $(".reading-list-full-page").hide();
+    $(".index").hide();
+});
+
 // Return to landing page
 $("nav h3").on("click", function (event) {
     $("header").show();
@@ -49,15 +58,54 @@ $('.add').on("click", this, function (event) {
     $(this).toggle();
 });
 
-// show or hide books in series
-//            $('.books-by-series .book-entry').hide();
-//            $('.series-title').on("click", this, function (event) {
-//                console.log("toggle books");
-//                $(this).nextUntil('.series-title').toggle();
-//            });
 
+function getHeadlinesBySource(sourceName) {
+    console.log(sourceName);
+    $.ajax({
+            type: "GET",
+            url: "/get-headlines/" + sourceName,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        // if API call is successful
+        .done(function (result) {
+            // display search results
+            console.log(result);
+            displayHeadlinesBySource(sourceName, result.articles);
+        })
+        // if API call unsuccessful
+        .fail(function (jqXHR, error, errorThrown) {
+            // return errors
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            alert('Something went wrong');
+        });
+}
 
+function displayHeadlinesBySource(sourceName, data) {
+    var buildTheHtmlOutput = '<h5>' + sourceName + '</h5>';
+    buildTheHtmlOutput += '<ul class="articles">';
+    $.each(data, function (dataKey, dataValue) {
+        buildTheHtmlOutput += '<li class="article">';
+        buildTheHtmlOutput += '<a href="' + data.value.url + '">' + data.value.title + '</a><br />';
+        buildTheHtmlOutput += '<button class="add">Add to my reading list</button>';
+        buildTheHtmlOutput += '<p class="added">Added to "My Articles"</p>';
+        buildTheHtmlOutput += '</li>';
+    });
+    buildTheHtmlOutput += '</ul>';
+    //use the HTML output to show it in the index.html
+    $("#" + sourceData).html(buildTheHtmlOutput);
+}
 
+// get headlines with external API
+$("#nav-news").on("click", function (event) {
+    event.preventDefault();
+    getHeadlinesBySource("the-new-york-times");
+});
+$("#get-started").on("click", function (event) {
+    getHeadlinesBySource("the-new-york-times");
+});
 
 //// logged in username global variable
 //var username = "";
@@ -278,45 +326,6 @@ $('.add').on("click", this, function (event) {
 //
 
 
-
-//// search for books
-//$("#author-search").on("submit", function (event) {
-//    // take input from user
-//    event.preventDefault();
-//    var searchInput = $("#search-input").val();
-//    console.log(searchInput);
-//    // check username for spaces, empty, undefined
-//    if (searchInput.length < 1) {
-//        alert('Please enter a search term');
-//    }
-//    // if search is valid
-//    else {
-//        $.ajax({
-//                type: "GET",
-//                url: "/search/" + searchInput,
-//                dataType: 'json',
-//                contentType: 'application/json'
-//            })
-//            // if API call is successful
-//            .done(function (result) {
-//                // display search results
-//                console.log(result);
-//                displayBooks(result);
-//                searchInput = "";
-//                $("#search-input").val("");
-//                $("#search-results-placeholder").hide();
-//            })
-//            // if API call unsuccessful
-//            .fail(function (jqXHR, error, errorThrown) {
-//                // return errors
-//                console.log(jqXHR);
-//                console.log(error);
-//                console.log(errorThrown);
-//                alert('Something went wrong');
-//            });
-//    }
-//});
-//
 //// remove book entry from new releases
 //$('.remove').on("click", function (event) {
 //    $('.book-entry').eventCurrentTarget.hide();
