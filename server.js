@@ -1,8 +1,6 @@
 "use strict";
 
-//var User = require('./models/user');
-//var Book = require('./models/book');
-//var Series = require('./models/series')
+var Article = require('./models/article');
 var bodyParser = require('body-parser');
 var config = require('./config');
 var unirest = require('unirest');
@@ -100,13 +98,13 @@ app.get("/get-headlines/:sourceName", function (req, res) {
     });
 });
 
-// POST: add article to reading list
+// POST: add article to database
 app.post('/add-to-reading-list', function (req, res) {
     // send local data to database
     Article.create({
         articleTitle: req.body.articleTitle,
         articleUrl: req.body.articleUrl,
-        articleSource: req.body.articleSource,
+        articleSource: req.body.articleSource
     }, function (err, article) {
         // return the result of the DB call
         if (err) {
@@ -119,48 +117,18 @@ app.post('/add-to-reading-list', function (req, res) {
     });
 });
 
-//// POST: creating a new book
-//app.post('/add-to-favorites', function (req, res) {
-//    // send the local data to the database
-//    Book.create({
-//        bookTitle: req.body.bookTitle,
-//        bookSubtitle: req.body.bookSubtitle,
-//        bookAuthor: req.body.bookAuthor,
-//        bookThumbnail: req.body.bookThumbnail,
-//        bookUser: req.body.bookUser,
-//        bookPublished: req.body.bookPublished,
-//        bookSeries: req.body.bookSeries
-//    }, function (err, lead) {
-//        // return the result of DB call
-//        if (err) {
-//            return res.status(500).json({
-//                message: 'Internal Server Error'
-//            });
-////        }
-//        // send the result back to client.js
-//        res.status(201).json(lead);
-//
-//    });
-//});
-//
-//
-//
-//app.get('/get-favorites/:username', function (req, res) {
-//    Book.find({
-//            bookUser: req.params.username
-//        },
-//
-//        function (err, item) {
-//            if (err) {
-//                return res.status(500).json({
-//                    message: 'Internal Server Error'
-//                });
-//            }
-//
-//            res.status(200).json(item);
-//        });
-//});
-//
+
+app.get('/get-reading-list', function (req, res) {
+    Article.find({}, function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(item);
+    });
+});
+
 //// POST: creating a new series
 //// local API endpoint in server.js
 //app.post('/series/create', function (req, res) {

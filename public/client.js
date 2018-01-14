@@ -106,6 +106,45 @@ function displayHeadlinesBySource(sourceName, data) {
     });
 }
 
+function populateReadingList() {
+    console.log("populateReadingList ran");
+    $.ajax({
+            type: "GET",
+            url: "/get-reading-list/",
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        // if API call successful
+        .done(function (result) {
+            console.log(result);
+            displayReadingList(result);
+        })
+        // if API call unsuccessful
+        .fail(function (jqXHR, error, errorThrown) {
+            // return errors
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            alert('Something went wrong');
+        });
+}
+
+function displayReadingList(articles) {
+    console.log("displayReadingList ran");
+    var buildTheHtmlOutput = '';
+    if (articles.length == 0) {
+        var htmlOutput = "Select articles to add to your reading list";
+    } else {
+        $.each(articles, function (index, value) {
+            console.log(value);
+            buildTheHtmlOutput += '<li><a href="' + value.articleUrl + '">' + value.articleTitle + '</a><i class="fa fa-times" aria-hidden="true"></i>';
+            buildTheHtmlOutput += '<p>' + value.articleSource + '</p>';
+            buildTheHtmlOutput += '</li>';
+        });
+        $(".reading-list-sidebar-articles").html(buildTheHtmlOutput);
+    }
+}
+
 // get headlines with external API
 $("#nav-news").on("click", function (event) {
     event.preventDefault();
@@ -151,6 +190,7 @@ $(document).on('click', '.add', function (event) {
         })
         .done(function (result) {
             console.log(result);
+            populateReadingList();
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -173,48 +213,7 @@ $(document).on('click', '.add', function (event) {
 //    });
 //}
 //
-//// display book entry
-//function displayBooks(books) {
-//    var buildTheHtmlOutput = '';
-//    if (books.items == undefined) {
-//        var htmlOutput = "Sorry, no books!";
-//    } else {
-//        $.each(books.items, function (index, value) {
-//            console.log(value.volumeInfo);
-//            buildTheHtmlOutput += '<div class="book-entry col-12">';
-//            if (value.volumeInfo.imageLinks == undefined) {
-//                buildTheHtmlOutput += '<div class="image-background col-2">';
-//                buildTheHtmlOutput += '<img src="images/no-image.gif">';
-//                buildTheHtmlOutput += '</div>';
-//            } else {
-//                buildTheHtmlOutput += '<div class="image-background col-2">';
-//                buildTheHtmlOutput += '<img src="' + value.volumeInfo.imageLinks.thumbnail + '">';
-//                buildTheHtmlOutput += '</div>';
-//            }
-//            buildTheHtmlOutput += '<div class="book-info col-10">';
-//            buildTheHtmlOutput += '<p class="book-title">' + value.volumeInfo.title + '</p>';
-//            buildTheHtmlOutput += '<p class="author">' + value.volumeInfo.authors + '</p>';
-//            buildTheHtmlOutput += '<p class="book-blurb">' + value.volumeInfo.description + '</p>';
-//            buildTheHtmlOutput += '<form class="add-to-favorites">';
-//            buildTheHtmlOutput += '<input type="hidden" class="add-to-favorites-book-title" value="' + value.volumeInfo.title + '">';
-//            buildTheHtmlOutput += '<input type="hidden" class="add-to-favorites-book-subtitle" value="' + value.volumeInfo.subtitle + '">';
-//            buildTheHtmlOutput += '<input type="hidden" class="add-to-favorites-book-author" value="' + value.volumeInfo.authors + '">';
-//            buildTheHtmlOutput += '<input type="hidden" class="add-to-favorites-publish-date" value="' + value.volumeInfo.publishedDate + '">';
-//            if (value.volumeInfo.imageLinks == undefined) {
-//                buildTheHtmlOutput += '<input type="hidden" class="add-to-favorites-book-thumbnail" value="images/no-image.gif">';
-//            } else {
-//                buildTheHtmlOutput += '<input type="hidden" class="add-to-favorites-book-thumbnail" value="' + value.volumeInfo.imageLinks.thumbnail + '">';
-//            }
-//            buildTheHtmlOutput += '<input type="hidden" class="add-to-favorites-book-user" value="' + username + '">';
-//            buildTheHtmlOutput += '<button class="add" type="submit">Add to My Profile</button>';
-//            buildTheHtmlOutput += '</form>';
-//            buildTheHtmlOutput += '</div>';
-//            buildTheHtmlOutput += '</div>';
-//        });
-//        //use the HTML output to show it in the index.html
-//        $(".results").html(buildTheHtmlOutput);
-//    }
-//}
+
 //
 //function populateFavoritesContainer(username) {
 //    console.log("populateFavoritesContainer ran");

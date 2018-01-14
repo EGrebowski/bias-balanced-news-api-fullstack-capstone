@@ -227,59 +227,59 @@ header h1 .red {
     margin-top: 40px;
 }
 
-.news .reading-list {
+.news .reading-list-sidebar {
     padding: 15px;
     background-color: #6ebef4;
     margin-bottom: 20px;
 }
 
-.news .reading-list h3 {
+.news .reading-list-sidebar h3 {
     font-size: 1.2rem;
     text-align: center;
 }
 
-.news .reading-list ol {
+.news .reading-list-sidebar ol {
     list-style: none;
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: 'Arimo', sans-serif;
 }
 
-.news .reading-list ol li {
+.news .reading-list-sidebar ol li {
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
-.news .reading-list ol li:hover {
+.news .reading-list-sidebar ol li:hover {
     color: #0083D0;
     cursor: pointer;
 }
 
-.news .reading-list ol i {
+.news .reading-list-sidebar ol i {
     float: right;
     font-size: .6rem;
     color: black;
 }
 
-.news .reading-list ol i:hover {
+.news .reading-list-sidebar ol i:hover {
     font-size: 1rem;
 }
 
-.news .reading-list ol p {
+.news .reading-list-sidebar ol p {
     font-size: .7rem;
 }
 
-.news .reading-list form {
+.news .reading-list-sidebar form {
     font-family: 'Arimo', sans-serif;
 }
 
-.news .reading-list form p {
+.news .reading-list-sidebar form p {
     font-size: .7rem;
     padding-top: 5px;
 }
 
-.news .reading-list input,
-.news .reading-list form button {
+.news .reading-list-sidebar input,
+.news .reading-list-sidebar form button {
     border: 1px solid black;
     display: inline;
     width: 100%;
@@ -287,7 +287,7 @@ header h1 .red {
 
 }
 
-.news .reading-list input {
+.news .reading-list-sidebar input {
     font-size: .8rem;
     margin-top: 5px;
     margin-bottom: 5px;
