@@ -1,14 +1,13 @@
 "use strict";
 
-//last article won't delete from html
-//"added" message sometimes works, sometimes doesn't
-//won't add new articles after deleted all of them
+//best way to handle height of source containers
 
 
 $(document).ready(function (event) {
     $(".news").hide();
     $(".reading-list-full-page").hide();
     $(".index").hide();
+    $('#article-count').hide();
 });
 
 // Get started
@@ -100,8 +99,8 @@ function displayHeadlinesBySource(sourceName, data) {
     // toggle Add button
     $(".added").hide();
     $('.add').on("click", this, function (event) {
-        $(this).next('.added').toggle();
-        $(this).toggle();
+        $(this).next('.added').show();
+        $(this).hide();
     });
 }
 
@@ -116,6 +115,7 @@ function populateReadingList() {
         // if API call successful
         .done(function (result) {
             displayReadingList(result);
+            displayReadingListCount(result)
         })
         // if API call unsuccessful
         .fail(function (jqXHR, error, errorThrown) {
@@ -136,8 +136,10 @@ function displayReadingList(articles) {
     } else {
         $.each(articles, function (index, value) {
             console.log(value);
-            buildTheHtmlOutput += '<li><a href="' + value.articleUrl + '">' + value.articleTitle + '</a><i class="fa fa-times" aria-hidden="true"></i>';
+            buildTheHtmlOutput += '<li class="col-12"><div class="article-info col-11"><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
             buildTheHtmlOutput += '<p>' + value.articleSource + '</p>';
+            buildTheHtmlOutput += '</div>';
+            buildTheHtmlOutput += '<i class="fa fa-times col-1" aria-hidden="true"></i>';
             buildTheHtmlOutput += '<input type="hidden" class="article-id" value="' + value._id + '">';
             buildTheHtmlOutput += '</li>';
         });
@@ -146,6 +148,18 @@ function displayReadingList(articles) {
         $('.reading-list-sidebar-articles').show();
         $('.reading-list-full-page-articles').show();
         $('.no-articles').hide();
+    }
+}
+
+function displayReadingListCount(articles) {
+    var buildTheHtmlOutput = '';
+    if (articles.length == 0) {
+        $('#article-count').hide();
+    } else {
+        buildTheHtmlOutput += '';
+        buildTheHtmlOutput += articles.length;
+        $('#article-count').html(buildTheHtmlOutput);
+        $('#article-count').show();
     }
 }
 

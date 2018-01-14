@@ -252,9 +252,9 @@ header h1 .red {
     font-family: 'Arimo', sans-serif;
 }
 
-.news .reading-list-sidebar ol li {
-    padding-top: 8px;
-    padding-bottom: 8px;
+.news .reading-list-sidebar ol div {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .news .reading-list-sidebar ol li:hover {
@@ -263,9 +263,10 @@ header h1 .red {
 }
 
 .news .reading-list-sidebar ol i {
-    float: right;
     font-size: .6rem;
     color: black;
+    padding-top: 5%;
+    text-align: right;
 }
 
 .news .reading-list-sidebar ol i:hover {
@@ -282,7 +283,8 @@ header h1 .red {
 
 .news .reading-list-sidebar form p {
     font-size: .7rem;
-    padding-top: 5px;
+    padding-top: 10px;
+    clear: both;
 }
 
 .news .reading-list-sidebar input,
@@ -423,13 +425,16 @@ header h1 .red {
 }
 
 .reading-list-full-page ol li i {
-    float: right;
     font-size: .6rem;
+    color: black;
+    padding-top: 5%;
+    text-align: right;
 }
 
 .reading-list-full-page ol li i:hover {
     font-size: 1.2rem;
 }
+
 
 .reading-list-full-page form {
     font-family: 'Arimo', sans-serif;
@@ -437,8 +442,9 @@ header h1 .red {
 
 .reading-list-full-page form p {
     font-size: .9rem;
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 5px;
+    clear: both;
 }
 
 .reading-list-full-page form input {

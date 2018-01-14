@@ -24,6 +24,7 @@
 /*mobile default*/
 
 .col-1,
+.col-1-wide,
 .col-2,
 .col-3,
 .col-4,
@@ -43,7 +44,9 @@
 
 @media only screen and (min-width: 640px) {
     .col-1 {
-        /*        width: 8.33%;*/
+        width: 8.33%;
+    }
+    .col-1-wide {
         width: 12.5%;
     }
     .col-2 {
