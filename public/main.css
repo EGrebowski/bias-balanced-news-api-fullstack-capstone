@@ -214,8 +214,15 @@ header h1 .red {
 
 .news {
     padding-top: 60px;
-    width: 90%;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
     margin: 0 auto;
+    background: url(images/newspaper-background.jpeg) center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .news h2 {
@@ -225,12 +232,17 @@ header h1 .red {
     font-weight: normal;
     margin-bottom: 40px;
     margin-top: 40px;
+    color: white;
 }
 
 .news .reading-list-sidebar {
     padding: 15px;
-    background-color: #6ebef4;
+    /*    background-color: #6ebef4;*/
     margin-bottom: 20px;
+    border: 2px solid #006099;
+    border-top: 5px solid #006099;
+    border-bottom: 5px solid #006099;
+    background-color: #F9F8F4;
 }
 
 .news .reading-list-sidebar h3 {
@@ -314,6 +326,10 @@ header h1 .red {
     background-color: #F9F8F4;
     margin-bottom: 20px;
     margin-right: 1%;
+    border: 2px solid #006099;
+    border-top: 5px solid #006099;
+    border-bottom: 5px solid #006099;
+    background-color: #F9F8F4;
 }
 
 .news .news-container .source h5 {

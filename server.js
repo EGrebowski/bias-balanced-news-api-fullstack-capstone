@@ -139,41 +139,6 @@ app.delete('/get-reading-list/:id', function (req, res) {
     });
 });
 
-//// DELETE: deleting a lead
-//app.delete('/get-favorites/:id', function (req, res) {
-//    Book.findByIdAndRemove(req.params.id).exec().then(function (Book) {
-//        return res.status(204).end();
-//    }).catch(function (err) {
-//        return res.status(500).json({
-//            message: 'Internal Server Error'
-//        });
-//    });
-//});
-
-//// PUT: update a book entry with series
-//app.put('/get-favorites/:id', function (req, res) {
-//    var toUpdate = {};
-//    var updateableFields = ['bookSeries'];
-//    updateableFields.forEach(function (field) {
-//        if (field in req.body) {
-//            toUpdate[field] = req.body[field];
-//            console.log(field);
-//        }
-//    });
-//    Book.findByIdAndUpdate(req.params.id, {
-//        $set: toUpdate
-//    }).exec().then(function (result) {
-//        console.log(result);
-//        return res.status(204).end();
-//    }).catch(function (err) {
-//        return res.status(500).json({
-//            message: 'Internal Server Error'
-//        });
-//    });
-//});
-//
-//
-
 
 //// POST: signing in a user
 //// next step is verifying and validating the user credentials

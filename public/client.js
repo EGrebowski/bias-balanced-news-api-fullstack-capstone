@@ -1,6 +1,9 @@
 "use strict";
 
-//best way to handle height of source containers
+// best way to handle height of source containers
+// source container title
+// tear down database each time? how to display only current user without logging in
+// translate political sum into needle angle
 
 
 $(document).ready(function (event) {
@@ -57,7 +60,6 @@ $('#nav-index').on("click", function (event) {
 
 
 function getHeadlinesBySource(sourceName) {
-    console.log(sourceName);
     $.ajax({
             type: "GET",
             url: "/get-headlines/" + sourceName,
@@ -67,7 +69,6 @@ function getHeadlinesBySource(sourceName) {
         // if API call is successful
         .done(function (result) {
             // display search results
-            console.log(result);
             displayHeadlinesBySource(sourceName, result.articles);
         })
         // if API call unsuccessful
@@ -85,7 +86,7 @@ function displayHeadlinesBySource(sourceName, data) {
     buildTheHtmlOutput += '<ul class="articles">';
     $.each(data, function (dataKey, dataValue) {
         buildTheHtmlOutput += '<li class="article">';
-        buildTheHtmlOutput += '<a href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
+        buildTheHtmlOutput += '<a class="js-article" target="_blank" href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
         buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-title" value="' + dataValue.title + '">';
         buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-url" value="' + dataValue.url + '">';
         buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-source" value="' + dataValue.source.name + '">';
@@ -105,7 +106,6 @@ function displayHeadlinesBySource(sourceName, data) {
 }
 
 function populateReadingList() {
-    console.log("populateReadingList ran");
     $.ajax({
             type: "GET",
             url: "/get-reading-list/",
@@ -135,7 +135,6 @@ function displayReadingList(articles) {
         $('.reading-list-full-page-articles').hide();
     } else {
         $.each(articles, function (index, value) {
-            console.log(value);
             buildTheHtmlOutput += '<li class="col-12"><div class="article-info col-11"><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
             buildTheHtmlOutput += '<p>' + value.articleSource + '</p>';
             buildTheHtmlOutput += '</div>';
@@ -239,3 +238,59 @@ $(document).on('click', '.fa-times', function (event) {
             alert('Something went wrong');
         });
 });
+
+// set political gauge
+let clickCount = 0;
+let totalPoliticalCount = [];
+let needleValue;
+$(document).on('click', '.js-article', function (event) {
+    let politicalSource = $(this).siblings('.add-to-reading-list-source').val();
+    let politicalCount;
+    let thisPoliticalCount;
+    clickCount += 1;
+    // assign numerical value to each source
+    if (politicalSource === "The New York Times") {
+        thisPoliticalCount = -6;
+    } else if (politicalSource === "USA Today") {
+        thisPoliticalCount = 0;
+    } else if (politicalSource === "Fox News") {
+        thisPoliticalCount = 10;
+    } else if (politicalSource === "The Washington Post") {
+        thisPoliticalCount = -3;
+    } else if (politicalSource === "Reuters") {
+        thisPoliticalCount = 0;
+    } else if (politicalSource === "The Wall Street Journal") {
+        thisPoliticalCount = 6;
+    } else if (politicalSource === "The Huffington Post") {
+        thisPoliticalCount = -10;
+    } else if (politicalSource === "Politico") {
+        thisPoliticalCount = -1;
+    } else if (politicalSource === "Financial Post") {
+        thisPoliticalCount = 3;
+    }
+    // set totalPoliticalCount
+    totalPoliticalCount.push(thisPoliticalCount);
+    console.log(totalPoliticalCount);
+    // calculate sum
+    function getSum(total, num) {
+        return total + num;
+    }
+    let politicalSum = totalPoliticalCount.reduce(getSum);
+    // calculate average
+    needleValue = politicalSum / clickCount;
+    console.log(needleValue);
+});
+
+
+// send reading list to user
+//const sendmail = require('sendmail')();
+//
+//sendmail({
+//    from: 'no-reply@yourdomain.com',
+//    to: 'test@qq.com, test@sohu.com, test@163.com ',
+//    subject: 'test sendmail',
+//    html: 'Mail of test sendmail ',
+//}, function(err, reply) {
+//    console.log(err && err.stack);
+//    console.dir(reply);
+//});
