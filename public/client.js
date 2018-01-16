@@ -2,8 +2,6 @@
 
 // best way to handle height of source containers
 // source container title
-// tear down database each time? how to display only current user without logging in
-// translate political sum into needle angle
 
 
 $(document).ready(function (event) {
@@ -90,7 +88,7 @@ function displayHeadlinesBySource(sourceName, data) {
         buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-title" value="' + dataValue.title + '">';
         buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-url" value="' + dataValue.url + '">';
         buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-source" value="' + dataValue.source.name + '">';
-        buildTheHtmlOutput += '<button class="add">Add to my reading list</button>';
+        buildTheHtmlOutput += '<button class="add js-add">Add to my reading list</button>';
         buildTheHtmlOutput += '<p class="added"><i class="fa fa-check" aria-hidden="true"></i>Added</p>';
         buildTheHtmlOutput += '</li>';
     });
@@ -243,30 +241,30 @@ $(document).on('click', '.fa-times', function (event) {
 let clickCount = 0;
 let totalPoliticalCount = [];
 let needleValue;
-$(document).on('click', '.js-article', function (event) {
+$(document).on('click', '.js-article, .js-add', function (event) {
     let politicalSource = $(this).siblings('.add-to-reading-list-source').val();
     let politicalCount;
     let thisPoliticalCount;
     clickCount += 1;
     // assign numerical value to each source
     if (politicalSource === "The New York Times") {
-        thisPoliticalCount = -6;
+        thisPoliticalCount = -60;
     } else if (politicalSource === "USA Today") {
         thisPoliticalCount = 0;
     } else if (politicalSource === "Fox News") {
-        thisPoliticalCount = 10;
+        thisPoliticalCount = 90;
     } else if (politicalSource === "The Washington Post") {
-        thisPoliticalCount = -3;
+        thisPoliticalCount = -30;
     } else if (politicalSource === "Reuters") {
         thisPoliticalCount = 0;
     } else if (politicalSource === "The Wall Street Journal") {
-        thisPoliticalCount = 6;
+        thisPoliticalCount = 60;
     } else if (politicalSource === "The Huffington Post") {
-        thisPoliticalCount = -10;
+        thisPoliticalCount = -90;
     } else if (politicalSource === "Politico") {
-        thisPoliticalCount = -1;
+        thisPoliticalCount = -10;
     } else if (politicalSource === "Financial Post") {
-        thisPoliticalCount = 3;
+        thisPoliticalCount = 30;
     }
     // set totalPoliticalCount
     totalPoliticalCount.push(thisPoliticalCount);
@@ -276,10 +274,14 @@ $(document).on('click', '.js-article', function (event) {
         return total + num;
     }
     let politicalSum = totalPoliticalCount.reduce(getSum);
+    console.log(politicalSum);
     // calculate average
     needleValue = politicalSum / clickCount;
     console.log(needleValue);
+    $('#logo .needle').css('transform', 'rotate(' + needleValue + 'deg)');
 });
+
+
 
 
 // send reading list to user

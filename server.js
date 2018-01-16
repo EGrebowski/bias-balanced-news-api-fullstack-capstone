@@ -13,6 +13,7 @@ var BasicStrategy = require('passport-http').BasicStrategy;
 var https = require('https');
 var http = require('http');
 var express = require('express');
+var sendmail = require('sendmail')();
 var app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -129,6 +130,8 @@ app.get('/get-reading-list', function (req, res) {
     });
 });
 
+// comment test
+
 app.delete('/get-reading-list/:id', function (req, res) {
     Article.findByIdAndRemove(req.params.id).exec().then(function (Article) {
         return res.status(204).end();
@@ -136,6 +139,22 @@ app.delete('/get-reading-list/:id', function (req, res) {
         return res.status(500).json({
             message: 'Internal Server Error'
         });
+    });
+});
+
+// GET: make API call for email
+app.get("/send-email/:emailAddress", function (req, res) {
+    console.log(req.params.emailAddress);
+    sendmail({
+        from: 'ellie.grebowski@yahoo.com',
+        to: req.params.emailAddress + ', ellie.grebowski@yahoo.com, test@blahblah.com ',
+        subject: 'test sendmail',
+        html: 'Mail of test sendmail ',
+    }, function (err, reply) {
+        console.log(err && err.stack);
+        console.dir(reply);
+        res.json(reply);
+        //        res.sendStatus(err);
     });
 });
 
