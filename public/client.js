@@ -278,7 +278,7 @@ $(document).on('click', '.js-article, .js-add', function (event) {
     // calculate average
     needleValue = politicalSum / clickCount;
     console.log(needleValue);
-    $('#logo .needle').css('transform', 'rotate(' + needleValue + 'deg)');
+    $('.logo .needle').css('transform', 'rotate(' + needleValue + 'deg)');
 });
 
 

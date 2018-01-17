@@ -35,6 +35,8 @@ main,
 .index {
     display: block;
     overflow: auto;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 nav {
@@ -117,7 +119,6 @@ header {
 
 header .header-text {
     margin-top: 150px;
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -203,7 +204,7 @@ header h1 .red {
     padding-left: 30px;
     padding-right: 30px;
     margin-top: 20px;
-    background-color: #07A0FB;
+    background-color: #000EA6;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -519,25 +520,26 @@ header h1 .red {
     padding-bottom: 40px;
 }
 
-.index #key {
+.key {
     margin-bottom: 20px;
     font-family: 'Arimo', sans-serif;
+    text-align: center;
 }
 
-.index .color-patch-blue,
-.index .key-blue p,
-.index .color-patch-red,
-.index .key-red p {
+.color-patch-blue,
+.key-blue p,
+.color-patch-red,
+.key-red p {
     display: inline-block;
 }
 
-.index .key-blue .color-patch-blue {
+.key-blue .color-patch-blue {
     background-color: blue;
     width: 10px;
     height: 10px;
 }
 
-.index .key-red .color-patch-red {
+.key-red .color-patch-red {
     background-color: red;
     width: 10px;
     height: 10px;
@@ -546,24 +548,32 @@ header h1 .red {
 
 /*Gauge Start*/
 
-#logo {
+.logo {
     display: inline-block;
     position: relative;
 }
 
-#logo .speedometer {
+.logo .speedometer {
     width: 320px;
     height: 320px;
     border-radius: 100%;
     border-left: 60px solid blue;
     border-top: 60px solid red;
-    border-right: 60px solid white;
-    border-bottom: 60px solid white;
     -webkit-transform: rotate(45deg);
     display: inline-block;
 }
 
-#logo .needle {
+.index .logo .speedometer {
+    border-right: 60px solid white;
+    border-bottom: 60px solid white;
+}
+
+.reading-list-full-page .logo .speedometer {
+    border-right: 60px solid #F9F8F4;
+    border-bottom: 60px solid #F9F8F4;
+}
+
+.logo .needle {
     width: 10px;
     height: 160px;
     background: #999999;
