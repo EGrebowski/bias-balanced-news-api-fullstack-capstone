@@ -14,12 +14,15 @@
     -webkit-padding-after: 0px;
     -webkit-padding-start: 0px;
     -webkit-padding-end: 0px;
+
 }
 
 html {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;
+    background: rgba(0, 0, 0, 0) url("images/newspaper-background.jpeg") no-repeat center center fixed;
 }
 
 body {
@@ -34,9 +37,9 @@ main,
 .reading-list-full-page,
 .index {
     display: block;
-    overflow: auto;
+    /*    overflow: auto;*/
     max-width: 100%;
-    overflow-x: hidden;
+    /*    overflow-x: hidden;*/
 }
 
 nav {
@@ -47,6 +50,7 @@ nav {
     z-index: 100;
     background-color: black;
     color: white;
+    top: 0;
 }
 
 nav h3 {
@@ -114,11 +118,11 @@ header {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: rgba(0, 0, 0, .5);
+    /*    background-color: rgba(0, 0, 0, .5);*/
 }
 
 header .header-text {
-    margin-top: 150px;
+    padding-top: 150px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -143,12 +147,17 @@ header h1 .red {
 }
 
 .info-section {
+    background-color: white;
     padding-top: 30px;
-    padding-bottom: 30px;
+    /*    padding-bottom: 30px;*/
     text-align: center;
     font-family: 'Arimo', sans-serif;
-    max-width: 1000px;
+    /*    max-width: 1000px;*/
     margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 32rem;
 }
 
 .info-section h2 {
@@ -219,11 +228,12 @@ header h1 .red {
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
-    background: linear-gradient(rgba(250, 250, 250, .2), rgba(250, 250, 250, 0.2)), url(images/newspaper-background.jpeg) center center fixed;
+    /*    background: linear-gradient(rgba(250, 250, 250, .2), rgba(250, 250, 250, 0.2)), url(images/newspaper-background.jpeg) center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding-bottom: 32rem;
 }
 
 .news h2 {
@@ -335,6 +345,7 @@ header h1 .red {
     border-bottom: 5px solid #006099;
     border-radius: 5px;
     background-color: #F9F8F4;
+    overflow-x: auto;
 }
 
 .news .news-container .source h5 {
@@ -394,11 +405,12 @@ header h1 .red {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-    background: linear-gradient(rgba(250, 250, 250, .2), rgba(250, 250, 250, 0.2)), url(images/newspaper-background.jpeg) center center fixed;
+    /*    background: linear-gradient(rgba(250, 250, 250, .2), rgba(250, 250, 250, 0.2)), url(images/newspaper-background.jpeg) center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding-bottom: 32rem;
 }
 
 .reading-list-full-page h3 {
@@ -413,19 +425,28 @@ header h1 .red {
 
 .reading-list-full-page .reading-list-container {
     /*    background-color: #F9F8F4;*/
+    /*
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 10%;
     padding-right: 10%;
+*/
     padding-top: 50px;
     padding-bottom: 50px;
     margin-bottom: 40px;
+    /*    overflow: auto;*/
+}
+
+.reading-list-full-page .articles-container {
     border: 2px solid #006099;
     border-top: 5px solid #006099;
     border-bottom: 5px solid #006099;
     background-color: #F9F8F4;
     border-radius: 5px;
+    padding-left: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .reading-list-full-page .no-articles {
@@ -499,6 +520,10 @@ header h1 .red {
     border-radius: 1px;
 }
 
+.reading-list-full-page .political-gauge-container {
+    padding-left: 20px;
+}
+
 .index img {
     display: block;
     margin-left: auto;
@@ -510,6 +535,8 @@ header h1 .red {
     width: 100%;
     text-align: center;
     padding-top: 80px;
+    padding-bottom: 32rem;
+
 }
 
 .index h3 {
@@ -569,8 +596,8 @@ header h1 .red {
 }
 
 .reading-list-full-page .logo .speedometer {
-    border-right: 60px solid #F9F8F4;
-    border-bottom: 60px solid #F9F8F4;
+    border-right: 60px solid rgba(0, 0, 0, -1);
+    border-bottom: 60px solid rgba(0, 0, 0, -1);
 }
 
 .logo .needle {

@@ -86,27 +86,31 @@
         <section class="reading-list-full-page">
             <h3>My Articles</h3>
             <div class="reading-list-container">
-                <div class="key">
-                    <div class="key-blue">
-                        <div class="color-patch-blue"></div>
-                        <p>Liberal-Leaning</p>
+                <div class="articles-container col-8">
+                    <p class="no-articles">Select articles to add to your reading list.</p>
+                    <ol class="reading-list-full-page-articles"></ol>
+                    <form action="#" name="email-reading-list" autocomplete="off">
+                        <fieldset name="email"></fieldset>
+                        <p>Enter your email to send this reading list directly to your inbox</p>
+                        <input type="text" name="email" id="email" placeholder="your.name@email.com" />
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+                <div class="political-gauge-container col-4">
+                    <div class="key">
+                        <div class="key-blue">
+                            <div class="color-patch-blue"></div>
+                            <p>Liberal-Leaning</p>
+                        </div>
+                        <div class="key-red">
+                            <div class="color-patch-red"></div>
+                            <p>Conservative-Leaning</p>
+                        </div>
                     </div>
-                    <div class="key-red">
-                        <div class="color-patch-red"></div>
-                        <p>Conservative-Leaning</p>
+                    <div class="logo"> <span class="speedometer"></span>
+                        <span class="needle"></span>
                     </div>
                 </div>
-                <div class="logo"> <span class="speedometer"></span>
-                    <span class="needle"></span>
-                </div>
-                <p class="no-articles">Select articles to add to your reading list.</p>
-                <ol class="reading-list-full-page-articles"></ol>
-                <form action="#" name="email-reading-list" autocomplete="off">
-                    <fieldset name="email"></fieldset>
-                    <p>Enter your email to send this reading list directly to your inbox</p>
-                    <input type="text" name="email" id="email" placeholder="your.name@email.com" />
-                    <button type="submit">Send</button>
-                </form>
             </div>
         </section>
 

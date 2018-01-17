@@ -9,6 +9,7 @@ $(document).ready(function (event) {
     $(".reading-list-full-page").hide();
     $(".index").hide();
     $('#article-count').hide();
+    populateReadingList();
 });
 
 // Get started
