@@ -85,8 +85,23 @@
 
         <section class="reading-list-full-page">
             <h3>My Articles</h3>
-            <div class="reading-list-container">
-                <div class="articles-container col-8">
+            <div class="political-gauge-container col-4">
+                <div class="key">
+                    <div class="key-blue">
+                        <div class="color-patch-blue"></div>
+                        <p>Liberal-Leaning</p>
+                    </div>
+                    <div class="key-red">
+                        <div class="color-patch-red"></div>
+                        <p>Conservative-Leaning</p>
+                    </div>
+                </div>
+                <div class="logo"> <span class="speedometer"></span>
+                    <span class="needle"></span>
+                </div>
+            </div>
+            <div class="reading-list-container col-8">
+                <div class="articles-container">
                     <p class="no-articles">Select articles to add to your reading list.</p>
                     <ol class="reading-list-full-page-articles"></ol>
                     <form action="#" name="email-reading-list" autocomplete="off">
@@ -95,21 +110,6 @@
                         <input type="text" name="email" id="email" placeholder="your.name@email.com" />
                         <button type="submit">Send</button>
                     </form>
-                </div>
-                <div class="political-gauge-container col-4">
-                    <div class="key">
-                        <div class="key-blue">
-                            <div class="color-patch-blue"></div>
-                            <p>Liberal-Leaning</p>
-                        </div>
-                        <div class="key-red">
-                            <div class="color-patch-red"></div>
-                            <p>Conservative-Leaning</p>
-                        </div>
-                    </div>
-                    <div class="logo"> <span class="speedometer"></span>
-                        <span class="needle"></span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -129,6 +129,7 @@
             <div class="logo"> <span class="speedometer"></span>
                 <span class="needle"></span>
             </div>
+            <p id="explanation">Where do these news sources fall on the political spectrum? Check out this 2014 study by the Pew Research Center to get a sense of each outlet’s audience. Note that this is not an exact science and should be read as a general guide.</p>
             <img class="spectrum" src="images/media-spectrum-placeholder.png" />
         </section>
     </main>

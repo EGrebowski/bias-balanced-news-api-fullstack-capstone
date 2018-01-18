@@ -1,7 +1,9 @@
 "use strict";
 
-// best way to handle height of source containers
 // source container title
+// reset political gauge
+// incorporate delete into political gauge
+
 
 
 $(document).ready(function (event) {
@@ -69,6 +71,7 @@ function getHeadlinesBySource(sourceName) {
         .done(function (result) {
             // display search results
             displayHeadlinesBySource(sourceName, result.articles);
+            console.log(result);
         })
         // if API call unsuccessful
         .fail(function (jqXHR, error, errorThrown) {

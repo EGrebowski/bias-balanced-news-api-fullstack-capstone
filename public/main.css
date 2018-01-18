@@ -22,7 +22,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background: rgba(0, 0, 0, 0) url("images/newspaper-background.jpeg") no-repeat center center fixed;
+    background: rgba(0, 0, 0, 0) url("images/newspaper-background.jpg") no-repeat center center fixed;
 }
 
 body {
@@ -99,7 +99,8 @@ nav li a {
 
 nav li a:hover {
     text-decoration: underline;
-    color: #0083D0;
+    /*    color: #0083D0; */
+    font-size: 1.2rem;
 }
 
 nav li a span {
@@ -244,8 +245,10 @@ header h1 .red {
     margin-bottom: 40px;
     margin-top: 40px;
     /*    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;*/
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .8);
     color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .news .reading-list-sidebar {
@@ -291,7 +294,7 @@ header h1 .red {
 .news .reading-list-sidebar ol i {
     font-size: .6rem;
     color: black;
-    padding-top: 5%;
+    padding-top: 7%;
     text-align: right;
 }
 
@@ -315,11 +318,18 @@ header h1 .red {
 
 .news .reading-list-sidebar input,
 .news .reading-list-sidebar form button {
-    border: 1px solid black;
     display: inline;
     width: 100%;
     padding: 3px;
+    border-radius: 2px;
+}
 
+.news .reading-list-sidebar input {
+    border: 1px solid black;
+}
+
+.news .reading-list-sidebar form button {
+    background-color: #E9E8E3;
 }
 
 .news .reading-list-sidebar input {
@@ -336,7 +346,7 @@ header h1 .red {
 
 .news .news-container .source {
     padding-top: 20px;
-    height: 350px;
+    height: 400px;
     background-color: #F9F8F4;
     margin-bottom: 20px;
     margin-right: 1%;
@@ -378,7 +388,7 @@ header h1 .red {
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .news .news-container .source ul li button:hover {
@@ -419,8 +429,10 @@ header h1 .red {
     font-family: 'Roboto Slab', serif;
     font-weight: normal;
     margin-bottom: 40px;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .8);
     color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .reading-list-full-page .reading-list-container {
@@ -432,7 +444,7 @@ header h1 .red {
     padding-left: 10%;
     padding-right: 10%;
 */
-    padding-top: 50px;
+    /*    padding-top: 50px;*/
     padding-bottom: 50px;
     margin-bottom: 40px;
     /*    overflow: auto;*/
@@ -447,6 +459,7 @@ header h1 .red {
     padding-left: 40px;
     padding-top: 40px;
     padding-bottom: 40px;
+    float: right;
 }
 
 .reading-list-full-page .no-articles {
@@ -480,7 +493,7 @@ header h1 .red {
 .reading-list-full-page ol li i {
     font-size: .6rem;
     color: black;
-    padding-top: 5%;
+    padding-top: 1%;
     text-align: right;
 }
 
@@ -507,7 +520,7 @@ header h1 .red {
     padding-bottom: 2px;
     font-size: .9rem;
     border: 1px solid #A19A8B;
-    border-radius: 1px;
+    border-radius: 2px;
 }
 
 .reading-list-full-page form button {
@@ -517,11 +530,17 @@ header h1 .red {
     padding-right: 10px;
     background-color: #E9E8E3;
     border: 1px solid #A19A8B;
-    border-radius: 1px;
+    border-radius: 2px;
 }
 
 .reading-list-full-page .political-gauge-container {
     padding-left: 20px;
+    text-align: center;
+    background-color: #F9F8F4;
+    border: 2px solid #006099;
+    border-top: 5px solid #006099;
+    border-bottom: 5px solid #006099;
+    border-radius: 5px
 }
 
 .index img {
@@ -529,14 +548,13 @@ header h1 .red {
     margin-left: auto;
     margin-right: auto;
     padding-top: 30px;
+    margin-bottom: 40px;
 }
 
 .index {
     width: 100%;
     text-align: center;
     padding-top: 80px;
-    padding-bottom: 32rem;
-
 }
 
 .index h3 {
@@ -545,12 +563,21 @@ header h1 .red {
     font-family: 'Roboto Slab', serif;
     font-weight: normal;
     padding-bottom: 40px;
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .key {
     margin-bottom: 20px;
     font-family: 'Arimo', sans-serif;
     text-align: center;
+    /*    background-color: rgba(0, 0, 0, .8);*/
+    /*    color: white;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .color-patch-blue,
@@ -572,6 +599,19 @@ header h1 .red {
     height: 10px;
 }
 
+.index #explanation {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    font-family: 'Arimo', sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
 
 /*Gauge Start*/
 
@@ -613,7 +653,7 @@ header h1 .red {
     position: absolute;
     top: 10px;
     -webkit-animation: move 5s infinite;
-    transform: rotate(-30deg);
+    transform: rotate(0deg);
     transform-origin: bottom;
 }
 

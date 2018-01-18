@@ -23,7 +23,8 @@
 
 /*mobile default*/
 
-.col-1,
+/*.col-1,*/
+
 .col-1-wide,
 .col-2,
 .col-3,
@@ -34,12 +35,25 @@
 .col-8,
 .col-9,
 .col-10,
-.col-11,
 .col-12 {
     float: left;
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
     width: 100%
+}
+
+.col-11 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+    width: 91.6%;
+}
+
+.col-1 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+    width: 8.3%;
 }
 
 /*responsive navbar*/
@@ -60,7 +74,6 @@
         margin: 0 auto;
     }
 }
-
 
 @media only screen and (min-width: 640px) {
     .col-1 {
