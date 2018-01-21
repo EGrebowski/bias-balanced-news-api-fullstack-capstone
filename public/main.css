@@ -286,9 +286,15 @@ header h1 .red {
     padding-bottom: 15px;
 }
 
-.news .reading-list-sidebar ol li:hover {
-    color: #0083D0;
+.news .reading-list-sidebar ol a {
+    text-decoration: none;
+    color: black;
+}
+
+.news .reading-list-sidebar ol li:hover,
+.news .reading-list-sidebar ol a:hover {
     cursor: pointer;
+    color: blue;
 }
 
 .news .reading-list-sidebar ol i {
@@ -322,14 +328,20 @@ header h1 .red {
     width: 100%;
     padding: 3px;
     border-radius: 2px;
+    border: 1px solid #A19A8B;
 }
 
 .news .reading-list-sidebar input {
-    border: 1px solid black;
-}
+/*    border: 1px solid gray;
+    */}
 
 .news .reading-list-sidebar form button {
     background-color: #E9E8E3;
+
+}
+
+.news .reading-list-sidebar form button:hover {
+    cursor: pointer;
 }
 
 .news .reading-list-sidebar input {
@@ -389,6 +401,7 @@ header h1 .red {
     margin-right: auto;
     margin-top: 5px;
     border-radius: 2px;
+    border: 1px solid #A19A8B;
 }
 
 .news .news-container .source ul li button:hover {
@@ -534,7 +547,7 @@ header h1 .red {
 }
 
 .reading-list-full-page .political-gauge-container {
-    padding-left: 20px;
+    /*    padding-left: 20px;*/
     text-align: center;
     background-color: #F9F8F4;
     border: 2px solid #006099;
@@ -555,6 +568,8 @@ header h1 .red {
     width: 100%;
     text-align: center;
     padding-top: 80px;
+    background-color: white;
+    padding-bottom: 40px;
 }
 
 .index h3 {
@@ -563,8 +578,8 @@ header h1 .red {
     font-family: 'Roboto Slab', serif;
     font-weight: normal;
     padding-bottom: 40px;
-    background-color: rgba(0, 0, 0, .8);
-    color: white;
+    /*    background-color: rgba(0, 0, 0, .8);*/
+    /*    color: white;*/
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 40px;
@@ -600,18 +615,28 @@ header h1 .red {
 }
 
 .index #explanation {
-    background-color: rgba(0, 0, 0, .8);
-    color: white;
+    /*    background-color: rgba(0, 0, 0, .8);*/
+    /*    color: white;*/
     font-family: 'Arimo', sans-serif;
     margin-left: 10%;
     margin-right: 10%;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 20px;
+    /*    padding-top: 20px;*/
     padding-bottom: 20px;
-    margin-top: 50px;
+    /*    margin-top: 50px;*/
     margin-bottom: 20px;
 }
+
+/*
+.index .gauge-container {
+    background-color: #F9F8F4;
+    border: 2px solid #006099;
+    border-top: 5px solid #006099;
+    border-bottom: 5px solid #006099;
+    border-radius: 5px
+}
+*/
 
 /*Gauge Start*/
 
@@ -631,8 +656,8 @@ header h1 .red {
 }
 
 .index .logo .speedometer {
-    border-right: 60px solid white;
-    border-bottom: 60px solid white;
+    border-right: 60px solid rgba(0, 0, 0, -1);
+    border-bottom: 60px solid rgba(0, 0, 0, -1);
 }
 
 .reading-list-full-page .logo .speedometer {

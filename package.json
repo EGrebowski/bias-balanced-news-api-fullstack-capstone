@@ -22,6 +22,8 @@
         "body-parser": "^1.15.2",
         "cors": "^2.8.4",
         "express": "^4.14.0",
+        "fire-mail": "0.0.0",
+        "gmail-send": "^1.2.13",
         "isomorphic-fetch": "^2.2.1",
         "mongodb": "^2.2.9",
         "mongoose": "^4.5.10",
