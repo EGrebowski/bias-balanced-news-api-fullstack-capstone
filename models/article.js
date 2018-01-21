@@ -12,6 +12,10 @@ var articleSchema = new mongoose.Schema({
     articleSource: {
         type: String,
         required: false
+    },
+    politicalCount: {
+        type: Number,
+        required: false
     }
 }, {
     collection: 'articles'

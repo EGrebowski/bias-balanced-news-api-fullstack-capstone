@@ -19,31 +19,6 @@ var nodemailer = require("nodemailer");
 // create reusable transport method (opens pool of SMTP connections)
 var transporter = nodemailer.createTransport('smtps://biasbalancednews%40gmail.com:2blue1.red@smtp.gmail.com');
 
-
-//var smtpTransport = nodemailer.createTransport("SMTP", {
-//    service: "Gmail",
-//    auth: {
-//        user: "",
-//        pass: ""
-//    }
-//});
-
-//var sendmail = require('sendmail')({
-//    logger: {
-//        debug: console.log,
-//        info: console.info,
-//        warn: console.warn,
-//        error: console.error
-//    },
-//    silent: false,
-//    dkim: { // Default: False
-//        privateKey: fs.readFileSync('./dkim-private.pem', 'utf8'),
-//        keySelector: 'mydomainkey'
-//    },
-//    devPort: 1025 // Default: False
-//    devHost: 'localhost' // Default: localhost
-//    })
-//});
 var app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -135,7 +110,8 @@ app.post('/add-to-reading-list', function (req, res) {
     Article.create({
         articleTitle: req.body.articleTitle,
         articleUrl: req.body.articleUrl,
-        articleSource: req.body.articleSource
+        articleSource: req.body.articleSource,
+        politicalCount: req.body.politicalCount
     }, function (err, article) {
         // return the result of the DB call
         if (err) {
@@ -148,7 +124,6 @@ app.post('/add-to-reading-list', function (req, res) {
     });
 });
 
-
 app.get('/get-reading-list', function (req, res) {
     Article.find({}, function (err, item) {
         if (err) {
@@ -160,8 +135,6 @@ app.get('/get-reading-list', function (req, res) {
     });
 });
 
-// comment test
-
 app.delete('/get-reading-list/:id', function (req, res) {
     Article.findByIdAndRemove(req.params.id).exec().then(function (Article) {
         return res.status(204).end();
@@ -172,13 +145,14 @@ app.delete('/get-reading-list/:id', function (req, res) {
     });
 });
 
+
 // GET: make API call for email
 app.get("/send-email/:emailAddress", function (req, res) {
     console.log(req.params.emailAddress);
     var mailOptions = {
-        from: '"Fred Foo ?" <biasbalancednews@gmail.com>', // sender address
-        to: 'ellie.grebowski@yahoo.com', // list of receivers
-        subject: 'Hello ✔', // Subject line
+        from: '"Bias Balanced News" <biasbalancednews@gmail.com>', // sender address
+        to: req.params.emailAddress, // list of receivers
+        subject: 'My reading list', // Subject line
         text: 'Hello world ?', // plaintext body
         html: '<b>Hello world ?</b>' // html body
     };
@@ -188,56 +162,11 @@ app.get("/send-email/:emailAddress", function (req, res) {
         }
         console.log('Message sent: ' + info.response);
     });
-
-
-    //    var mailOptions = {
-    //        from: "Fred Foo ✔ <ellie.grebowski@gmail.com>", // sender address
-    //        to: "ellie.grebowski@yahoo.com", // list of receivers
-    //        subject: "Hello ✔", // Subject line
-    //        text: "Hello world ✔", // plaintext body
-    //        html: "<b>Hello world ✔</b>" // html body
-    //    }
-    //
-    //    // send mail with defined transport object
-    //    smtpTransport.sendMail(mailOptions, function (error, response) {
-    //        if (error) {
-    //            console.log(error);
-    //        } else {
-    //            console.log("Message sent: " + response.message);
-    //        }
-    //
-    //        // if you don't want to use this transport object anymore, uncomment following line
-    //        smtpTransport.close(); // shut down the connection pool, no more messages
-    //    });
-
-    //    var send = require('gmail-send')({
-    //        //var send = require('../index.js')({
-    //        user: 'ellie.grebowski@gmail.com',
-    //        // user: credentials.user,                  // Your GMail account used to send emails
-    //        pass: '',
-    //        // pass: credentials.pass,                  // Application-specific password
-    //        to: 'ellie.grebowski@yahoo.com',
-    //        // to:   credentials.user,                  // Send to yourself
-    //        // you also may set array of recipients:
-    //        // [ 'user1@gmail.com', 'user2@gmail.com' ]
-    //        // from:    credentials.user             // from: by default equals to user
-    //        // replyTo: credentials.user             // replyTo: by default undefined
-    //        subject: 'test subject',
-    //        text: 'gmail-send example 1', // Plain text
-    //        //html:    '<b>html text</b>'            // HTML
-    //    });
-    //    sendmail({
-    //        from: 'ellie.grebowski@yahoo.com',
-    //        to: req.params.emailAddress + ', ellie.grebowski@yahoo.com, test@blahblah.com ',
-    //        subject: 'test sendmail',
-    //        html: 'Mail of test sendmail ',
-    //    }, function (err, reply) {
-    //        console.log(err && err.stack);
-    //        console.dir(reply);
-    //        res.json(reply);
-    //        //        res.sendStatus(err);
-    //    });
 });
+
+
+
+
 
 
 //// POST: signing in a user
