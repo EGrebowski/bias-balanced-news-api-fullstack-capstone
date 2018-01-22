@@ -290,91 +290,31 @@ $(document).on('click', '.fa-times', function (event) {
         });
 });
 
+$("form").on('submit', function (event) {
+    event.preventDefault();
+    var emailAddress = $('#email').val();
+    var emailBody = "<p>Test to see if this works.</p>"
+    var emailObject = {
+        emailBody: emailBody,
+        emailHtml: emailBody
+    }
+    $.ajax({
+            type: "GET",
+            url: '/send-email/' + emailAddress,
+            dataType: 'json',
+            data: JSON.stringify(emailObject),
+            contentType: 'application/json'
+        })
+        // if API call successful
+        .done(function (result) {
 
-
-//// set political gauge
-//let clickCount = 0;
-//let totalPoliticalCount = [];
-//let needleValue;
-//$(document).on('click', '.js-article, .js-add', function (event) {
-//    let politicalSource = $(this).siblings('.add-to-reading-list-source').val();
-//    let politicalCount;
-//    let thisPoliticalCount;
-//    clickCount += 1;
-//    // assign numerical value to each source
-//    if (politicalSource === "The New York Times") {
-//        thisPoliticalCount = -60;
-//    } else if (politicalSource === "USA Today") {
-//        thisPoliticalCount = 0;
-//    } else if (politicalSource === "Fox News") {
-//        thisPoliticalCount = 90;
-//    } else if (politicalSource === "The Washington Post") {
-//        thisPoliticalCount = -30;
-//    } else if (politicalSource === "Reuters") {
-//        thisPoliticalCount = 0;
-//    } else if (politicalSource === "The Wall Street Journal") {
-//        thisPoliticalCount = 60;
-//    } else if (politicalSource === "The Huffington Post") {
-//        thisPoliticalCount = -90;
-//    } else if (politicalSource === "Politico") {
-//        thisPoliticalCount = -10;
-//    } else if (politicalSource === "Financial Post") {
-//        thisPoliticalCount = 30;
-//    }
-//    // set totalPoliticalCount
-//    totalPoliticalCount.push(thisPoliticalCount);
-//    console.log(totalPoliticalCount);
-//    // calculate sum
-//    function getSum(total, num) {
-//        return total + num;
-//    }
-//    let politicalSum = totalPoliticalCount.reduce(getSum);
-//    console.log(politicalSum);
-//    // calculate average
-//    needleValue = politicalSum / clickCount;
-//    console.log(needleValue);
-//    $('.logo .needle').css('transform', 'rotate(' + needleValue + 'deg)');
-//});
-//// adjust political gauge on delete
-//$(document).on('click', '.fa-times', function (event) {
-//    let politicalSource = $(this).siblings('.article-source').val();
-//    console.log(politicalSource);
-//    let politicalCount;
-//    let thisPoliticalCount;
-//    clickCount += 1;
-//    // assign numerical value to each source
-//    if (politicalSource === "The New York Times") {
-//        thisPoliticalCount = 60;
-//    } else if (politicalSource === "USA Today") {
-//        thisPoliticalCount = 0;
-//    } else if (politicalSource === "Fox News") {
-//        thisPoliticalCount = -90;
-//    } else if (politicalSource === "The Washington Post") {
-//        thisPoliticalCount = 30;
-//    } else if (politicalSource === "Reuters") {
-//        thisPoliticalCount = 0;
-//    } else if (politicalSource === "The Wall Street Journal") {
-//        thisPoliticalCount = -60;
-//    } else if (politicalSource === "The Huffington Post") {
-//        thisPoliticalCount = 90;
-//    } else if (politicalSource === "Politico") {
-//        thisPoliticalCount = 10;
-//    } else if (politicalSource === "Financial Post") {
-//        thisPoliticalCount = -30;
-//    }
-//    // set totalPoliticalCount
-//    totalPoliticalCount.push(thisPoliticalCount);
-//    console.log(thisPoliticalCount);
-//    // calculate sum
-//    function getSum(total, num) {
-//        return total + num;
-//    }
-//    let politicalSum = totalPoliticalCount.reduce(getSum);
-//    console.log(politicalSum);
-//    // calculate average
-//    needleValue = politicalSum / clickCount;
-//    console.log(needleValue);
-//    $('.logo .needle').css('transform', 'rotate(' + needleValue + 'deg)');
-//});
-//var emailBody = '<h5>My Reading List</h5>';
-//module.exports = emailBody;
+        })
+        // if API call unsuccessful
+        .fail(function (jqXHR, error, errorThrown) {
+            // return errors
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            alert('Something went wrong');
+        });
+});

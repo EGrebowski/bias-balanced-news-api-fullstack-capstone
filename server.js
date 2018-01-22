@@ -148,13 +148,13 @@ app.delete('/get-reading-list/:id', function (req, res) {
 
 // GET: make API call for email
 app.get("/send-email/:emailAddress", function (req, res) {
-    console.log(req.params.emailAddress);
+    console.log(req.body.emailHtml);
     var mailOptions = {
         from: '"Bias Balanced News" <biasbalancednews@gmail.com>', // sender address
         to: req.params.emailAddress, // list of receivers
         subject: 'My reading list', // Subject line
         text: 'Hello world ?', // plaintext body
-        html: '<b>Hello world ?</b>' // html body
+        html: req.body.emailHtml // html body
     };
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
