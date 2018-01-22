@@ -14,8 +14,13 @@
 
 <body>
     <nav role="navigation">
+        <div id="messageBox" class="demoMessage">
+            <span>Loading ...</span>
+            <!--            <button id="hideBtn">X</button>-->
+        </div>
         <h3><span class="blue">B</span>ia<span class="red">S</span> <span class="red">B</span>alance<span class="blue">D</span></h3>
         <ul class="nav-buttons">
+            <li><a href="/">Home</a></li>
             <li><a href="#" id="nav-news">News</a></li>
             <li><a href="#" id="nav-reading-list">My Articles <span id="article-count"></span></a></li>
             <li><a href="#" id="nav-index">Index</a></li>
@@ -64,6 +69,7 @@
                 </ol>
                 <form action="#" name="email-reading-list" autocomplete="off">
                     <fieldset name="email"></fieldset>
+                    <!--                    <p class="sent">Email Sent</p>-->
                     <p>Enter your email to send this reading list directly to your inbox</p>
                     <input type="text" name="email" id="email" placeholder="your.name@email.com" />
                     <button type="submit">Send</button>
@@ -104,10 +110,10 @@
                 <div class="articles-container">
                     <p class="no-articles">Select articles to add to your reading list.</p>
                     <ol class="reading-list-full-page-articles"></ol>
-                    <form action="#" name="email-reading-list" autocomplete="off">
+                    <form action="#" name="full-page-email-reading-list" autocomplete="off">
                         <fieldset name="email"></fieldset>
                         <p>Enter your email to send this reading list directly to your inbox</p>
-                        <input type="text" name="email" id="email" placeholder="your.email@email.com" />
+                        <input type="text" name="email" id="full-page-list-email" placeholder="your.email@email.com" />
                         <button type="submit">Send</button>
                     </form>
                 </div>

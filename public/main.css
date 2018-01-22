@@ -53,6 +53,37 @@ nav {
     top: 0;
 }
 
+nav .demoMessage {
+    position: fixed;
+    top: 0px;
+    left: 35%;
+    background-color: #ffce00;
+    color: #2c3531;
+    padding: 10px 5%;
+    width: 30%;
+    text-align: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+nav .demoMessage span,
+nav .demoMessage a {
+    color: #2c3531;
+
+}
+
+nav .demoMessage a {
+    cursor: pointer;
+    color: #0375B4;
+}
+
+nav .demoMessage #hideBtn {
+    padding: 2px 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 nav h3 {
     font-family: 'Cormorant SC', serif;
     font-size: 1.5rem;
@@ -100,7 +131,7 @@ nav li a {
 nav li a:hover {
     text-decoration: underline;
     /*    color: #0083D0; */
-    font-size: 1.2rem;
+    /*    font-size: 1.2rem;*/
 }
 
 nav li a span {
@@ -561,6 +592,13 @@ header h1 .red {
     .reading-list-full-page .political-gauge-container {
         width: 100%;
         margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 1195px) {
+    .reading-list-full-page .reading-list-container {
+        width: 100%;
+        display: block;
     }
 }
 

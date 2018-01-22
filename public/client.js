@@ -1,8 +1,17 @@
 "use strict";
 
-// source container title
+var emailBodyHtml = '';
+var emailBodyText = '';
 
+function displayError(message) {
+    $("#messageBox span").html(message);
+    $("#messageBox").fadeIn();
+    $("#messageBox").fadeOut(10000);
+};
+
+// landing page
 $(document).ready(function (event) {
+    $("#messageBox").hide();
     $(".news").hide();
     $(".reading-list-full-page").hide();
     $(".index").hide();
@@ -75,7 +84,7 @@ function getHeadlinesBySource(sourceName) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
-            alert('Something went wrong');
+            displayError('Something went wrong');
         });
 }
 
@@ -145,7 +154,7 @@ function populateReadingList() {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
-            alert('Something went wrong');
+            displayError('Something went wrong');
         });
 }
 
@@ -284,7 +293,7 @@ $(document).on('click', '.add', function (event) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
-            alert('Oops...', 'Please try again', 'error');
+            displayError('Oops...', 'Please try again', 'error');
         });
 });
 
@@ -305,61 +314,107 @@ $(document).on('click', '.fa-times', function (event) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
-            alert('Something went wrong');
+            displayError('Something went wrong');
         });
 });
 
 
 // send reading list email
-var emailBodyHtml = '';
-var emailBodyText = '';
+
 
 function buildEmailBodyHtml(articles) {
     if (articles.length !== 0) {
+        emailBodyHtml += '<p>Below are your articles from Bias Balanced News:</p>';
+        emailBodyHtml += '<br />';
+        emailBodyHtml += '<ul>';
         $.each(articles, function (index, value) {
-            emailBodyHtml += '<li><div><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
-            emailBodyHtml += '<p>' + value.articleSource + '</p>';
-            emailBodyHtml += '</div>';
+            emailBodyHtml += '<li><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
+            emailBodyHtml += '<p> From ' + value.articleSource + '</p>';
+            emailBodyHtml += '<br />';
             emailBodyHtml += '</li>';
         });
+        emailBodyHtml += '</ul>';
+        emailBodyHtml += '<p>For more headlines, check out Bias Balanced News at https://bias-balanced-news.herokuapp.com/.</p>';
+
     }
 }
 
 function buildEmailBodyText(articles) {
     if (articles.length !== 0) {
+        emailBodyText += 'Below are your articles from Bias Balanced News:';
         $.each(articles, function (index, value) {
-            emailBodyHtml += value.articleTitle;
-            emailBodyHtml += value.articleSource;
-            emailBodyHtml += value.articleUrl;
+            emailBodyText += value.articleTitle;
+            emailBodyText += value.articleSource;
+            emailBodyText += value.articleUrl;
         });
+        emailBodyText += 'For more headlines, check out Bias Balanced News at https://bias-balanced-news.herokuapp.com/.';
+
     }
 }
 
-$("form").on('submit', function (event) {
+$(".news .reading-list-sidebar form").on('submit', function (event) {
     event.preventDefault();
     var emailAddress = $('#email').val();
-    var emailBody = "<p>Test to see if this works.</p>"
-    var emailObject = {
-        emailBody: emailBody,
-        emailHtml: emailBody
-    }
-    $.ajax({
-            type: "GET",
-            url: '/send-email/' + emailAddress,
-            dataType: 'json',
-            data: JSON.stringify(emailObject),
-            contentType: 'application/json'
-        })
-        // if API call successful
-        .done(function (result) {
+    if (emailAddress.length === 0) {
+        displayError('Please enter an email address');
+    } else {
+        var emailObject = {
+            emailBody: emailBodyText,
+            emailHtml: emailBodyHtml,
+            emailAddress: emailAddress
+        }
+        $.ajax({
+                type: "POST",
+                url: '/send-email/',
+                dataType: 'json',
+                data: JSON.stringify(emailObject),
+                contentType: 'application/json'
+            })
+            // if API call successful
+            .done(function (result) {
 
-        })
-        // if API call unsuccessful
-        .fail(function (jqXHR, error, errorThrown) {
-            // return errors
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-            alert('Something went wrong');
-        });
+            })
+            // if API call unsuccessful
+            .fail(function (jqXHR, error, errorThrown) {
+                // return errors
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+                displayError('Something went wrong');
+            });
+    }
+});
+
+$(".reading-list-full-page form").on('submit', function (event) {
+    event.preventDefault();
+    console.log("test");
+    var emailAddress = $('#full-page-list-email').val();
+    if (emailAddress.length === 0) {
+        displayError('Please enter an email address');
+    } else {
+        var emailObject = {
+            emailBody: emailBodyText,
+            emailHtml: emailBodyHtml,
+            emailAddress: emailAddress
+        }
+        $.ajax({
+                type: "POST",
+                url: '/send-email/',
+                dataType: 'json',
+                data: JSON.stringify(emailObject),
+                contentType: 'application/json'
+            })
+            // if API call successful
+            .done(function (result) {
+
+            })
+            // if API call unsuccessful
+            .fail(function (jqXHR, error, errorThrown) {
+                // return errors
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+                displayError('Something went wrong');
+            });
+    }
 });
