@@ -1,10 +1,6 @@
 "use strict";
 
 // source container title
-// reset political gauge
-// incorporate delete into political gauge
-
-
 
 $(document).ready(function (event) {
     $(".news").hide();
@@ -84,19 +80,40 @@ function getHeadlinesBySource(sourceName) {
 }
 
 function displayHeadlinesBySource(sourceName, data) {
-    var buildTheHtmlOutput = '<h5>' + sourceName + '</h5>';
-    buildTheHtmlOutput += '<ul class="articles">';
+    var buildTheHtmlOutput = '';
     $.each(data, function (dataKey, dataValue) {
-        buildTheHtmlOutput += '<li class="article">';
-        buildTheHtmlOutput += '<a class="js-article" target="_blank" href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
-        buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-title" value="' + dataValue.title + '">';
-        buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-url" value="' + dataValue.url + '">';
-        buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-source" value="' + dataValue.source.name + '">';
-        buildTheHtmlOutput += '<button class="add js-add">Add to my reading list</button>';
-        buildTheHtmlOutput += '<p class="added"><i class="fa fa-check" aria-hidden="true"></i>Added</p>';
-        buildTheHtmlOutput += '</li>';
+        if (dataKey == 0) {
+            buildTheHtmlOutput = '<h5>' + dataValue.source.name + '</h5>';
+            buildTheHtmlOutput += '<ul class="articles">';
+            buildTheHtmlOutput += '<li class="article">';
+            buildTheHtmlOutput += '<a class="js-article" target="_blank" href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-title" value="' + dataValue.title + '">';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-url" value="' + dataValue.url + '">';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-source" value="' + dataValue.source.name + '">';
+            buildTheHtmlOutput += '<button class="add js-add">Add to my reading list</button>';
+            buildTheHtmlOutput += '<p class="added"><i class="fa fa-check" aria-hidden="true"></i>Added</p>';
+            buildTheHtmlOutput += '</li>';
+        } else if ((dataKey > 0) && (dataKey < 2)) {
+            buildTheHtmlOutput += '<li class="article">';
+            buildTheHtmlOutput += '<a class="js-article" target="_blank" href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-title" value="' + dataValue.title + '">';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-url" value="' + dataValue.url + '">';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-source" value="' + dataValue.source.name + '">';
+            buildTheHtmlOutput += '<button class="add js-add">Add to my reading list</button>';
+            buildTheHtmlOutput += '<p class="added"><i class="fa fa-check" aria-hidden="true"></i>Added</p>';
+            buildTheHtmlOutput += '</li>';
+        } else if (dataKey == 2) {
+            buildTheHtmlOutput += '<li class="article">';
+            buildTheHtmlOutput += '<a class="js-article" target="_blank" href="' + dataValue.url + '">' + dataValue.title + '</a><br />';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-title" value="' + dataValue.title + '">';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-url" value="' + dataValue.url + '">';
+            buildTheHtmlOutput += '<input type="hidden" class="add-to-reading-list-source" value="' + dataValue.source.name + '">';
+            buildTheHtmlOutput += '<button class="add js-add">Add to my reading list</button>';
+            buildTheHtmlOutput += '<p class="added"><i class="fa fa-check" aria-hidden="true"></i>Added</p>';
+            buildTheHtmlOutput += '</li>';
+            buildTheHtmlOutput += '</ul>';
+        }
     });
-    buildTheHtmlOutput += '</ul>';
     //use the HTML output to show it in the index.html
     $("#" + sourceName).html(buildTheHtmlOutput);
     // toggle Add button
