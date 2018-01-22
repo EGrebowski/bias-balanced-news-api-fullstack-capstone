@@ -332,8 +332,9 @@ header h1 .red {
 }
 
 .news .reading-list-sidebar input {
-/*    border: 1px solid gray;
-    */}
+    /*    border: 1px solid gray;
+    */
+}
 
 .news .reading-list-sidebar form button {
     background-color: #E9E8E3;
@@ -554,6 +555,13 @@ header h1 .red {
     border-top: 5px solid #006099;
     border-bottom: 5px solid #006099;
     border-radius: 5px
+}
+
+@media only screen and (max-width: 1195px) {
+    .reading-list-full-page .political-gauge-container {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }
 
 .index img {

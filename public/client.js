@@ -118,7 +118,9 @@ function populateReadingList() {
         .done(function (result) {
             displayReadingList(result);
             displayReadingListCount(result);
+            buildEmailBodyHtml(result);
             refreshNeedle(result);
+            console.log(emailBodyHtml);
         })
         // if API call unsuccessful
         .fail(function (jqXHR, error, errorThrown) {
@@ -289,6 +291,32 @@ $(document).on('click', '.fa-times', function (event) {
             alert('Something went wrong');
         });
 });
+
+
+// send reading list email
+var emailBodyHtml = '';
+var emailBodyText = '';
+
+function buildEmailBodyHtml(articles) {
+    if (articles.length !== 0) {
+        $.each(articles, function (index, value) {
+            emailBodyHtml += '<li><div><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
+            emailBodyHtml += '<p>' + value.articleSource + '</p>';
+            emailBodyHtml += '</div>';
+            emailBodyHtml += '</li>';
+        });
+    }
+}
+
+function buildEmailBodyText(articles) {
+    if (articles.length !== 0) {
+        $.each(articles, function (index, value) {
+            emailBodyHtml += value.articleTitle;
+            emailBodyHtml += value.articleSource;
+            emailBodyHtml += value.articleUrl;
+        });
+    }
+}
 
 $("form").on('submit', function (event) {
     event.preventDefault();
