@@ -35,7 +35,7 @@ This app allows viewers to compare headlines across different news sites. Users 
 4.1 As a user, I can customize my news sources to reduce clutter and see only sources I am most interested in.
 
 ## Working Prototype
-You can access a working prototype of the app at [https://bias-balanced-news.herokuapp.com/](https://bias-balanced-news.herokuapp.com/).
+You can access a working prototype of the Node app at [https://bias-balanced-news.herokuapp.com/](https://bias-balanced-news.herokuapp.com/) and the React app here https://egrebowski.github.io/bias-balanced-news-api-fullstack-capstone-react/build
 
 ## Technical
 This app is built using HTML, CSS, JavaScript, jQuery, and Node.js.

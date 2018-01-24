@@ -1,21 +1,22 @@
 {
-    "name": "book-series-tracker-node-capstone",
+    "name": "bias-balanced-news-api-fullstack-capstone",
     "version": "1.0.0",
-    "description": "As an avid reader, I have trouble keeping track of books that I read, especially if they are part of an ongoing series. This app helps me track my favorite authors so that I know when a new release is available.",
+    "description": "No news source is completely unbiased, and the difference in perspective has become more noticeable than ever. Front page headlines from one source may be nothing more than a footnote in another. With Bias Balanced, compare headlines from a wide array of news outlets in order to get a more complete picture of current events.",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/EGrebowski/bias-balanced-news-api-fullstack-capstone"
+    },
+    "bugs": {
+        "url": "https://github.com/EGrebowski/bias-balanced-news-api-fullstack-capstone-/issues"
+    },
+    "homepage": "https://github.com/EGrebowski/bias-balanced-news-api-fullstack-capstone#readme",
     "main": "server.js",
     "scripts": {
         "test": "mocha",
         "start": "node server.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/EGrebowski/book-series-tracker-node-capstone"
-    },
     "author": "Ellie Grebowski",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/EGrebowski/book-series-tracker-node-capstone/issues"
-    },
     "dependencies": {
         "bcrypt": "^0.8.7",
         "bcryptjs": "^2.3.0",
@@ -27,7 +28,7 @@
         "isomorphic-fetch": "^2.2.1",
         "mongodb": "^2.2.9",
         "mongoose": "^4.5.10",
-        "nodemon": "^1.13.3",
+        "nodemon": "^1.14.11",
         "passport": "^0.3.2",
         "passport-http": "^0.3.0",
         "react": "^15.3.1",
@@ -62,6 +63,5 @@
         "sinon": "^1.17.6",
         "sinon-chai": "^2.8.0",
         "webpack": "^1.13.1"
-    },
-    "homepage": "https://github.com/EGrebowski/book-series-tracker-node-capstone#readme"
+    }
 }
