@@ -321,7 +321,6 @@ $(document).on('click', '.fa-times', function (event) {
 
 // send reading list email
 
-
 function buildEmailBodyHtml(articles) {
     if (articles.length !== 0) {
         emailBodyHtml += '<p>Below are your articles from Bias Balanced News:</p>';
@@ -348,13 +347,14 @@ function buildEmailBodyText(articles) {
             emailBodyText += value.articleUrl;
         });
         emailBodyText += 'For more headlines, check out Bias Balanced News at https://bias-balanced-news.herokuapp.com/.';
-
     }
 }
 
 $(".news .reading-list-sidebar form").on('submit', function (event) {
     event.preventDefault();
     var emailAddress = $('#email').val();
+    displayError('Email Sent');
+    $("#email").val("");
     if (emailAddress.length === 0) {
         displayError('Please enter an email address');
     } else {
@@ -372,7 +372,9 @@ $(".news .reading-list-sidebar form").on('submit', function (event) {
             })
             // if API call successful
             .done(function (result) {
-
+                displayError('Email Sent');
+                emailAddress = "";
+                $("#email").val("");
             })
             // if API call unsuccessful
             .fail(function (jqXHR, error, errorThrown) {
@@ -389,6 +391,11 @@ $(".reading-list-full-page form").on('submit', function (event) {
     event.preventDefault();
     console.log("test");
     var emailAddress = $('#full-page-list-email').val();
+    // success message
+    displayError('Email Sent');
+    //    emailAddress = "";
+    $("#full-page-list-email").val("");
+
     if (emailAddress.length === 0) {
         displayError('Please enter an email address');
     } else {
@@ -406,7 +413,9 @@ $(".reading-list-full-page form").on('submit', function (event) {
             })
             // if API call successful
             .done(function (result) {
-
+                displayError('Email Sent');
+                emailAddress = "";
+                $("#full-page-list-email").val("");
             })
             // if API call unsuccessful
             .fail(function (jqXHR, error, errorThrown) {

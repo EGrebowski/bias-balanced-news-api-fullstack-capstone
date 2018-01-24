@@ -161,6 +161,7 @@ app.post("/send-email/", function (req, res) {
             return console.log(error);
         }
         console.log('Message sent: ' + info.response);
+        res.status(201);
     });
 });
 

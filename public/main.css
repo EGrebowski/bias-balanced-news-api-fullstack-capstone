@@ -57,19 +57,19 @@ nav .demoMessage {
     position: fixed;
     top: 0px;
     left: 35%;
-    background-color: #ffce00;
-    color: #2c3531;
+    background-color: #0375B4;
+    color: white;
     padding: 10px 5%;
     width: 30%;
     text-align: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 nav .demoMessage span,
 nav .demoMessage a {
-    color: #2c3531;
-
+    color: white;
+    font-family: 'Arimo', sans-serif;
 }
 
 nav .demoMessage a {
