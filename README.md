@@ -5,10 +5,10 @@ No news source is completely unbiased, and the difference in perspective has bec
 ## Screenshots
 Desktop:
 
-??? ![Desktop](https://github.com/EGrebowski/book-series-tracker-node-capstone/blob/master/github-images/screen-shot-1.png)
-??? ![Desktop](https://github.com/EGrebowski/book-series-tracker-node-capstone/blob/master/github-images/screen-shot-2.png)
-??? ![Desktop](https://github.com/EGrebowski/book-series-tracker-node-capstone/blob/master/github-images/screen-shot-3.png)
-??? ![Desktop](https://github.com/EGrebowski/book-series-tracker-node-capstone/blob/master/github-images/screen-shot-4.png)
+![Desktop](https://github.com/EGrebowski/bias-balanced-news-api-fullstack-capstone/blob/master/github-images/screen-shot-1.png)
+![Desktop](https://github.com/EGrebowski/bias-balanced-news-api-fullstack-capstone/blob/master/github-images/screen-shot-2.png)
+![Desktop](https://github.com/EGrebowski/bias-balanced-news-api-fullstack-capstone/blob/master/github-images/screen-shot-3.png)
+![Desktop](https://github.com/EGrebowski/bias-balanced-news-api-fullstack-capstone/blob/master/github-images/screen-shot-4.png)
 
 
 ## Use Case
