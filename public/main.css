@@ -22,7 +22,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background: rgba(0, 0, 0, 0) url("images/newspaper-background.jpg") no-repeat center center fixed;
+    /*    background: rgba(0, 0, 0, 0) url("images/newspaper-background.jpg") no-repeat center center fixed;*/
 }
 
 body {
@@ -276,8 +276,9 @@ header h1 .red {
     margin-bottom: 40px;
     margin-top: 40px;
     /*    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;*/
-    background-color: rgba(0, 0, 0, .8);
-    color: white;
+    /*    background-color: rgba(0, 0, 0, .8);*/
+    color: black;
+    /*    color: white;*/
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -286,16 +287,22 @@ header h1 .red {
     padding: 15px;
     /*    background-color: #6ebef4;*/
     margin-bottom: 20px;
+    /*
     border: 2px solid #006099;
     border-top: 5px solid #006099;
     border-bottom: 5px solid #006099;
     background-color: #F9F8F4;
     border-radius: 5px;
+*/
 }
 
 .news .reading-list-sidebar h3 {
     font-size: 1.2rem;
     text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #820BBB;
+    padding-bottom: 10px;
 }
 
 .news .reading-list-sidebar .no-articles {
@@ -309,7 +316,7 @@ header h1 .red {
     list-style: none;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Source Serif Pro', serif;
 }
 
 .news .reading-list-sidebar ol div {
@@ -325,7 +332,7 @@ header h1 .red {
 .news .reading-list-sidebar ol li:hover,
 .news .reading-list-sidebar ol a:hover {
     cursor: pointer;
-    color: blue;
+    color: #820BBB;
 }
 
 .news .reading-list-sidebar ol i {
@@ -341,6 +348,16 @@ header h1 .red {
 
 .news .reading-list-sidebar ol p {
     font-size: .7rem;
+    font-family: 'Arimo', sans-serif;
+    padding-top: 3px;
+}
+
+.news .reading-list-sidebar ol p.source-blue {
+    color: blue;
+}
+
+.news .reading-list-sidebar ol p.source-red {
+    color: red;
 }
 
 .news .reading-list-sidebar form {
@@ -390,25 +407,54 @@ header h1 .red {
 
 .news .news-container .source {
     padding-top: 20px;
-    height: 400px;
-    background-color: #F9F8F4;
-    margin-bottom: 20px;
+    /*    height: 550px;*/
+    /*    background-color: #F9F8F4;*/
+    margin-bottom: 60px;
     margin-right: 1%;
-    border: 2px solid #006099;
+    /*    border-right: 1px solid gray;*/
+    /*    border: 2px solid #006099;*/
+    /*
     border-top: 5px solid #006099;
     border-bottom: 5px solid #006099;
     border-radius: 5px;
     background-color: #F9F8F4;
+*/
     overflow-x: auto;
+}
+
+.news .news-container #fox-news,
+.news .news-container #the-wall-street-journal,
+.news .news-container #financial-post {
+    border: none;
 }
 
 .news .news-container .source h5 {
     padding-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.news .news-container #the-new-york-times h5,
+.news .news-container #the-washington-post h5,
+.news .news-container #the-huffington-post h5 {
+    border-bottom: 2px solid blue;
+}
+
+.news .news-container #usa-today h5,
+.news .news-container #reuters h5,
+.news .news-container #politico h5 {
+    border-bottom: 2px solid black;
+}
+
+.news .news-container #fox-news h5,
+.news .news-container #the-wall-street-journal h5,
+.news .news-container #financial-post h5 {
+    border-bottom: 2px solid red;
 }
 
 .news .news-container .source ul {
     list-style: none;
-    font-family: 'Arimo', sans-serif;
 }
 
 .news .news-container .source ul li {
@@ -416,31 +462,69 @@ header h1 .red {
     padding-bottom: 10px;
 }
 
+.news .news-container .source ul li .image-wrapper {
+    height: 138px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.news .news-container .source ul li img {
+    width: 100%;
+}
+
 .news .news-container .source ul li a {
     text-decoration: none;
     color: black;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: bold;
 }
 
 .news .news-container .source ul li a:hover {
-    color: blue;
+    color: #820BBB;
+}
+
+.news .news-container .source ul li p.article-description {
+    font-size: .8rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Arimo', sans-serif;
 }
 
 .news .news-container .source ul li button {
     font-size: .7rem;
     padding: 5px;
-    background-color: #E9E8E3;
+    /*    background-color: #E9E8E3;*/
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
     border-radius: 2px;
-    border: 1px solid #A19A8B;
+    /*    border: 1px solid #A19A8B;*/
 }
+
+.news .news-container #the-new-york-times ul li button,
+.news .news-container #the-washington-post ul li button,
+.news .news-container #the-huffington-post ul li button {
+    background-color: #87CEFA;
+}
+
+.news .news-container #usa-today ul li button,
+.news .news-container #reuters ul li button,
+.news .news-container #politico ul li button {
+    background-color: #D3D3D3;
+}
+
+.news .news-container #fox-news ul li button,
+.news .news-container #the-wall-street-journal ul li button,
+.news .news-container #financial-post ul li button {
+    background-color: #FFCCCC;
+}
+
 
 .news .news-container .source ul li button:hover {
     cursor: pointer;
 }
 
-.news .news-container .source ul li p {
+.news .news-container .source ul li p.added {
     font-size: .7rem;
     /*    background-color: #E9E8E3;*/
     padding: 5px;
@@ -474,8 +558,9 @@ header h1 .red {
     font-family: 'Roboto Slab', serif;
     font-weight: normal;
     margin-bottom: 40px;
-    background-color: rgba(0, 0, 0, .8);
-    color: white;
+    /*    background-color: rgba(0, 0, 0, .8);*/
+    color: black;
+    /*    color: white;*/
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -495,12 +580,40 @@ header h1 .red {
     /*    overflow: auto;*/
 }
 
+.reading-list-full-page .political-gauge-container {
+    /*    padding-left: 20px;*/
+    text-align: center;
+    /*    background-color: #F9F8F4;*/
+    /*
+    border: 2px solid #006099;
+    border-top: 5px solid #006099;
+    border-bottom: 5px solid #006099;
+    border-radius: 5px
+    */
+}
+
+@media only screen and (max-width: 1195px) {
+    .reading-list-full-page .political-gauge-container {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 1195px) {
+    .reading-list-full-page .reading-list-container {
+        width: 100%;
+        display: block;
+    }
+}
+
 .reading-list-full-page .articles-container {
+    /*
     border: 2px solid #006099;
     border-top: 5px solid #006099;
     border-bottom: 5px solid #006099;
     background-color: #F9F8F4;
     border-radius: 5px;
+*/
     padding-left: 40px;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -524,15 +637,25 @@ header h1 .red {
 .reading-list-full-page ol li:hover {
     background-color: rgba(0, 0, 0, 0.03);
     color: #0083D0;
-
 }
 
 .reading-list-full-page ol li a {
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Source Serif Pro', serif;
+    text-decoration: none;
+    color: black;
 }
 
 .reading-list-full-page ol li p {
     font-size: .8rem;
+    font-family: 'Arimo', sans-serif;
+}
+
+.reading-list-full-page ol li p.source-blue {
+    color: blue;
+}
+
+.reading-list-full-page ol li p.source-red {
+    color: red;
 }
 
 .reading-list-full-page ol li i {
@@ -576,30 +699,6 @@ header h1 .red {
     background-color: #E9E8E3;
     border: 1px solid #A19A8B;
     border-radius: 2px;
-}
-
-.reading-list-full-page .political-gauge-container {
-    /*    padding-left: 20px;*/
-    text-align: center;
-    background-color: #F9F8F4;
-    border: 2px solid #006099;
-    border-top: 5px solid #006099;
-    border-bottom: 5px solid #006099;
-    border-radius: 5px
-}
-
-@media only screen and (max-width: 1195px) {
-    .reading-list-full-page .political-gauge-container {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-}
-
-@media only screen and (max-width: 1195px) {
-    .reading-list-full-page .reading-list-container {
-        width: 100%;
-        display: block;
-    }
 }
 
 .index img {
