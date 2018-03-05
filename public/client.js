@@ -172,7 +172,7 @@ function displayReadingList(articles) {
         $('.reading-list-full-page-articles').hide();
     } else {
         $.each(articles, function (index, value) {
-            if (value.articleSource === "The New York Times" || value.articleSource === "The Washington Post" || value.articleSource === "The Huffington Post") {
+            if (value.articleSource === "The New York Times" || value.articleSource === "The Washington Post" || value.articleSource === "MSNBC") {
                 buildTheHtmlOutput += '<li class="col-12"><div class="article-info col-11"><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
                 buildTheHtmlOutput += '<p class="source-blue">' + value.articleSource + '</p>';
                 buildTheHtmlOutput += '</div>';
@@ -252,7 +252,7 @@ $("#nav-news").on("click", function (event) {
     getHeadlinesBySource("the-washington-post");
     getHeadlinesBySource("reuters");
     getHeadlinesBySource("the-wall-street-journal");
-    getHeadlinesBySource("the-huffington-post");
+    getHeadlinesBySource("msnbc");
     getHeadlinesBySource("politico");
     getHeadlinesBySource("financial-post");
     //    getHeadlinesBySource("fortune");
@@ -264,7 +264,7 @@ $("#get-started").on("click", function (event) {
     getHeadlinesBySource("the-washington-post");
     getHeadlinesBySource("reuters");
     getHeadlinesBySource("the-wall-street-journal");
-    getHeadlinesBySource("the-huffington-post");
+    getHeadlinesBySource("msnbc");
     getHeadlinesBySource("politico");
     getHeadlinesBySource("financial-post");
 });
@@ -288,7 +288,7 @@ $(document).on('click', '.add', function (event) {
         politicalCount = 0;
     } else if (articleSource === "The Wall Street Journal") {
         politicalCount = 60;
-    } else if (articleSource === "The Huffington Post") {
+    } else if (articleSource === "MSNBC") {
         politicalCount = -90;
     } else if (articleSource === "Politico") {
         politicalCount = -10;
