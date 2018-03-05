@@ -176,25 +176,37 @@ function displayReadingList(articles) {
                 buildTheHtmlOutput += '<li class="col-12"><div class="article-info col-11"><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
                 buildTheHtmlOutput += '<p class="source-blue">' + value.articleSource + '</p>';
                 buildTheHtmlOutput += '</div>';
+                buildTheHtmlOutput += '<form class="delete-icon-form">';
+                buildTheHtmlOutput += '<button class="button-wrapper" type="submit">';
                 buildTheHtmlOutput += '<i class="fa fa-times col-1" aria-hidden="true"></i>';
+                buildTheHtmlOutput += '</button>';
                 buildTheHtmlOutput += '<input type="hidden" class="article-id" value="' + value._id + '">';
                 buildTheHtmlOutput += '<input type="hidden" class="article-source" value="' + value.articleSource + '">';
+                buildTheHtmlOutput += '</form>';
                 buildTheHtmlOutput += '</li>';
             } else if (value.articleSource === "Fox News" || value.articleSource === "The Wall Street Journal" || value.articleSource === "Financial Post") {
                 buildTheHtmlOutput += '<li class="col-12"><div class="article-info col-11"><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
                 buildTheHtmlOutput += '<p class="source-red">' + value.articleSource + '</p>';
                 buildTheHtmlOutput += '</div>';
+                buildTheHtmlOutput += '<form class="delete-icon-form">';
+                buildTheHtmlOutput += '<button class="button-wrapper" type="submit">';
                 buildTheHtmlOutput += '<i class="fa fa-times col-1" aria-hidden="true"></i>';
+                buildTheHtmlOutput += '</button>';
                 buildTheHtmlOutput += '<input type="hidden" class="article-id" value="' + value._id + '">';
                 buildTheHtmlOutput += '<input type="hidden" class="article-source" value="' + value.articleSource + '">';
+                buildTheHtmlOutput += '</form>';
                 buildTheHtmlOutput += '</li>';
             } else {
                 buildTheHtmlOutput += '<li class="col-12"><div class="article-info col-11"><a href="' + value.articleUrl + '">' + value.articleTitle + '</a>';
                 buildTheHtmlOutput += '<p>' + value.articleSource + '</p>';
                 buildTheHtmlOutput += '</div>';
+                buildTheHtmlOutput += '<form class="delete-icon-form">';
+                buildTheHtmlOutput += '<button class="button-wrapper" type="submit">';
                 buildTheHtmlOutput += '<i class="fa fa-times col-1" aria-hidden="true"></i>';
+                buildTheHtmlOutput += '</button>';
                 buildTheHtmlOutput += '<input type="hidden" class="article-id" value="' + value._id + '">';
                 buildTheHtmlOutput += '<input type="hidden" class="article-source" value="' + value.articleSource + '">';
+                buildTheHtmlOutput += '</form>';
                 buildTheHtmlOutput += '</li>';
             }
         });
@@ -322,8 +334,9 @@ $(document).on('click', '.add', function (event) {
 });
 
 // delete article from reading list
-$(document).on('click', '.fa-times', function (event) {
-    var articleID = $(this).parent().find('.article-id').val();
+$(document).on('submit', '.delete-icon-form', function (event) {
+    event.preventDefault();
+    var articleID = $(this).find('.article-id').val();
     console.log(articleID);
     $.ajax({
             method: 'DELETE',
