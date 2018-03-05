@@ -437,7 +437,7 @@ header h1 .red {
 
 .news .news-container #the-new-york-times h5,
 .news .news-container #the-washington-post h5,
-.news .news-container #the-huffington-post h5 {
+.news .news-container #msnbc h5 {
     border-bottom: 2px solid blue;
 }
 
@@ -503,7 +503,7 @@ header h1 .red {
 
 .news .news-container #the-new-york-times ul li button,
 .news .news-container #the-washington-post ul li button,
-.news .news-container #the-huffington-post ul li button {
+.news .news-container #msnbc ul li button {
     background-color: #87CEFA;
 }
 
