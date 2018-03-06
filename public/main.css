@@ -301,6 +301,13 @@ header h1 .red {
     color: #820BBB;
 }
 
+.news .reading-list-sidebar ol form button {
+    display: inline-block;
+    width: auto;
+    margin-top: 1rem;
+    border: none;
+}
+
 .news .reading-list-sidebar ol i {
     font-size: .6rem;
     color: black;
@@ -345,7 +352,7 @@ header h1 .red {
     border: 1px solid #A19A8B;
 }
 
-.news .reading-list-sidebar form button {
+.news .reading-list-sidebar form #send-email {
     background-color: #E9E8E3;
 
 }
@@ -588,6 +595,11 @@ header h1 .red {
     font-size: 1.2rem;
 }
 
+.reading-list-full-page .reading-list-container ol button {
+    border: none;
+    margin-left: 1rem;
+}
+
 
 .reading-list-full-page form {
     font-family: 'Arimo', sans-serif;
@@ -610,7 +622,7 @@ header h1 .red {
     border-radius: 2px;
 }
 
-.reading-list-full-page form button {
+.reading-list-full-page form #full-page-send-email {
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 10px;

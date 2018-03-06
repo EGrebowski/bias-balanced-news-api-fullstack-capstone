@@ -35,7 +35,6 @@
 
     <main role="main">
         <section class="info-section">
-            <!--            <p>No newsource can be completely unbiased, and the difference in perspective has become more noticeable than ever. Front page headlines from one source may be nothing more than a footnote in another. Bias Balanced allows you to compare headlines from a wide array of news outlets in order to get a more complete picture of current events.</p>-->
             <h2>Compare headlines from different news outlets to get a more complete picture of current events.</h2>
             <div class="icon-container col-3">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
@@ -64,14 +63,12 @@
             <section class="reading-list-sidebar col-3">
                 <h3>My Articles</h3>
                 <p class="no-articles">Select articles to add to your reading list.</p>
-                <ol class="reading-list-sidebar-articles">
-                </ol>
+                <ol class="reading-list-sidebar-articles"></ol>
                 <form action="#" name="email-reading-list" autocomplete="off">
                     <fieldset name="email"></fieldset>
-                    <!--                    <p class="sent">Email Sent</p>-->
                     <p>Enter your email to send this reading list directly to your inbox</p>
                     <input type="text" name="email" id="email" placeholder="your.name@email.com" />
-                    <button type="submit">Send</button>
+                    <button type="submit" id="send-email">Send</button>
                 </form>
             </section>
 
@@ -113,7 +110,7 @@
                         <fieldset name="email"></fieldset>
                         <p>Enter your email to send this reading list directly to your inbox</p>
                         <input type="text" name="email" id="full-page-list-email" placeholder="your.email@email.com" />
-                        <button type="submit">Send</button>
+                        <button type="submit" id="full-page-send-email">Send</button>
                     </form>
                 </div>
             </div>
