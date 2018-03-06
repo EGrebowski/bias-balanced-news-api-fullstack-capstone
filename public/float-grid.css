@@ -78,7 +78,17 @@
     }
 }
 
-@media only screen and (min-width: 640px) {
+/*mobile landscape*/
+
+@media only screen and (min-width: 480px) {}
+
+/*tablet portrait*/
+
+@media only screen and (min-width: 768px) {}
+
+/*tablet landscape and laptop */
+
+@media only screen and (min-width: 1024px) {
     .col-1 {
         width: 8.33%;
     }
@@ -128,5 +138,9 @@
         border-right: 1px solid gray;
     }
 
-
+    .news .news-container .source ul li .image-wrapper {
+        height: 138px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
 }

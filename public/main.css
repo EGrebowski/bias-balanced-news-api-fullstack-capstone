@@ -421,8 +421,6 @@ header h1 .red {
 }
 
 .news .news-container .source ul li .image-wrapper {
-    height: 138px;
-    overflow: hidden;
     margin-bottom: 1rem;
 }
 
