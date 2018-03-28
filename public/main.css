@@ -14,7 +14,6 @@
     -webkit-padding-after: 0px;
     -webkit-padding-start: 0px;
     -webkit-padding-end: 0px;
-
 }
 
 html {
@@ -150,22 +149,22 @@ header .header-text {
     margin-right: auto;
 }
 
-header h1 {
+header .header-text h1 {
     font-size: 4rem;
     text-align: center;
     font-family: 'Cormorant SC', serif;
     font-weight: normal;
 }
 
-header h1 span {
+header .header-text h1 span {
     font-family: 'Rye', cursive;
 }
 
-header h1 .blue {
+header .header-text h1 .blue {
     color: #000EA6;
 }
 
-header h1 .red {
+header .header-text h1 .red {
     color: #EA1821;
 }
 
@@ -192,11 +191,6 @@ header h1 .red {
     padding-bottom: 30px;
 }
 
-.info-section .placeholder {
-    color: rgba(255, 255, 255, 1.0);
-    font-size: .1rem;
-}
-
 .info-section .icon-container {
     background-color: #006099;
     color: white;
@@ -214,6 +208,11 @@ header h1 .red {
 .info-section .icon-container h3 {
     font-size: 1.7rem;
     font-weight: normal;
+}
+
+.info-section .placeholder {
+    color: rgba(255, 255, 255, 1.0);
+    font-size: .1rem;
 }
 
 .info-section button {
@@ -237,7 +236,6 @@ header h1 .red {
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
-    /*    background: linear-gradient(rgba(250, 250, 250, .2), rgba(250, 250, 250, 0.2)), url(images/newspaper-background.jpeg) center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -285,20 +283,34 @@ header h1 .red {
     font-family: 'Source Serif Pro', serif;
 }
 
-.news .reading-list-sidebar ol div {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.news .reading-list-sidebar ol a {
-    text-decoration: none;
-    color: black;
-}
-
 .news .reading-list-sidebar ol li:hover,
 .news .reading-list-sidebar ol a:hover {
     cursor: pointer;
     color: #820BBB;
+}
+
+.news .reading-list-sidebar ol .article-info {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.news .reading-list-sidebar ol .article-info a {
+    text-decoration: none;
+    color: black;
+}
+
+.news .reading-list-sidebar ol .article-info p {
+    font-size: .7rem;
+    font-family: 'Arimo', sans-serif;
+    padding-top: 3px;
+}
+
+.news .reading-list-sidebar ol .article-info p.source-blue {
+    color: blue;
+}
+
+.news .reading-list-sidebar ol .article-info p.source-red {
+    color: red;
 }
 
 .news .reading-list-sidebar ol form button {
@@ -308,29 +320,15 @@ header h1 .red {
     border: none;
 }
 
-.news .reading-list-sidebar ol i {
+.news .reading-list-sidebar ol form i {
     font-size: .6rem;
     color: black;
     padding-top: 7%;
     text-align: right;
 }
 
-.news .reading-list-sidebar ol i:hover {
+.news .reading-list-sidebar ol form i:hover {
     font-size: 1rem;
-}
-
-.news .reading-list-sidebar ol p {
-    font-size: .7rem;
-    font-family: 'Arimo', sans-serif;
-    padding-top: 3px;
-}
-
-.news .reading-list-sidebar ol p.source-blue {
-    color: blue;
-}
-
-.news .reading-list-sidebar ol p.source-red {
-    color: red;
 }
 
 .news .reading-list-sidebar form {
@@ -343,7 +341,7 @@ header h1 .red {
     clear: both;
 }
 
-.news .reading-list-sidebar input,
+.news .reading-list-sidebar form input,
 .news .reading-list-sidebar form button {
     display: inline;
     width: 100%;
@@ -352,19 +350,18 @@ header h1 .red {
     border: 1px solid #A19A8B;
 }
 
-.news .reading-list-sidebar form #send-email {
-    background-color: #E9E8E3;
-
-}
-
-.news .reading-list-sidebar form button:hover {
-    cursor: pointer;
-}
-
-.news .reading-list-sidebar input {
+.news .reading-list-sidebar form input {
     font-size: .8rem;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.news .reading-list-sidebar form button#send-email {
+    background-color: #E9E8E3;
+}
+
+.news .reading-list-sidebar form button#send-email:hover {
+    cursor: pointer;
 }
 
 .news .news-container {
@@ -472,7 +469,6 @@ header h1 .red {
 .news .news-container #financial-post ul li button {
     background-color: #FFCCCC;
 }
-
 
 .news .news-container .source ul li button:hover {
     cursor: pointer;
