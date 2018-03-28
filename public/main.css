@@ -764,3 +764,9 @@ footer li a {
 footer li a:hover {
     color: #07A0FB;
 }
+
+footer li p#attribution {
+    color: white;
+    padding-top: 3px;
+    font-size: .75rem;
+}
